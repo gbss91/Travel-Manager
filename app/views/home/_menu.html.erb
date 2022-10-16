@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <%= link_to image_tag('logo.png', id: 'logo'), root_path, class: 'navbar-brand'%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item ">
+          <%= link_to 'Pricing', home_pricing_path, class: 'nav-link active'%> 
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', root_path, class: 'nav-link active'%> 
+        </li>
+        <li class="nav-item">
+          <%= button_to "Sign In", root_path, class: 'btn btn-primary'%>
+        </li>
+    </div>
+  </div>
+</nav>
