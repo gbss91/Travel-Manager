@@ -1,9 +1,17 @@
-/* Personalised style applied to application layout and home views */
+/*Application-wide style. Applied to shared elements*/
 
-body {
-  background-color: #f8f8f7;
+/*Overwrite Bootstrap button color */
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #eb8258 !important;
+  border: none;
 }
 
-#logo {
-  height: 50px;
+.btn-primary:hover {
+  background-color: #eb6c39 !important;
 }
+
+/*Alerts and notices*/
+
+/**/
