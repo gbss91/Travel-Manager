@@ -1,9 +1,46 @@
 /* Style for home views */
 
-body {
-  background-color: #f8f8f7;
+#home-container,
+#pricing-container,
+#sign-up-container,
+#sign-in-container {
+  height: 85vh;
 }
 
 #logo {
   height: 50px;
+}
+
+#index-img {
+  height: 20vh;
+  width: auto;
+}
+
+.plan-container {
+  border: 2.5px solid #226b80;
+  border-radius: 10%;
+  padding: 25px;
+  margin: 10px;
+}
+
+.reference {
+  color: black;
+  text-decoration: none;
+  font-size: xx-small;
+}
+
+.sign-box {
+  background-color: #226b80;
+  border-radius: 10%;
+  padding: 25px;
+  color: white;
+}
+
+.field {
+  margin: 10px;
+}
+
+.authentication-error {
+  color: white;
+  font-size: small;
 }

@@ -1,5 +1,4 @@
 <%# Menu for Home views%>
-
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <%= link_to image_tag('logo.png', id: 'logo'), root_path, class: 'navbar-brand'%>
@@ -12,10 +11,10 @@
           <%= link_to 'Pricing', home_pricing_path, class: 'nav-link active'%> 
         </li>
         <li class="nav-item">
-          <%= link_to 'Sign Up', root_path, class: 'nav-link active'%> 
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link active'%> 
         </li>
         <li class="nav-item">
-          <%= button_to "Sign In", root_path, class: 'btn btn-primary'%>
+          <%= button_to "Sign In", new_user_session_path, data: { turbo: false }, class: 'btn btn-primary'%>
         </li>
     </div>
   </div>

@@ -1,5 +1,11 @@
 /*Application-wide style. Applied to shared elements*/
 
+html,
+body {
+  height: 100vh;
+  background-color: #f8f8f7;
+}
+
 /*Overwrite Bootstrap button color */
 .btn-primary,
 .btn-primary:active,
