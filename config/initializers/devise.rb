@@ -310,4 +310,11 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.navigational_formats = ['*/*', :html, :turbo_stream]
+
+  #Change devise layout if user signed in
+  Rails.application.config.to_prepare do
+    Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "home" }
+    Devise::SessionsController.layout proc { |controller| user_signed_in? ? "application" : "home" }
+  end
+
 end

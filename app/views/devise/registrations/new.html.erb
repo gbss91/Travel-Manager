@@ -1,16 +1,9 @@
 <%#Sign Up view%>
-<div class="container d-flex justify-content-center align-items-center" id="sign-in-container">
-    <%#Render alerts using alerts partial%>
-    <div class="row">
-      <%if notice%>
-        <%= render "layouts/alerts"%>
-      <%end%>
-    </div>
-    <br>
+<div class="container d-flex justify-content-center align-items-center" id="sign-up-container">
     <div class="col-4 sign-box text-center">
       
       <h3>Sign up</h3>
-
+      <br>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -38,6 +31,7 @@
           <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password", placeholder: "Confirm Password"  %>
         </div>
         
+        <br>
         <div class="actions">
           <%= f.submit "Sign up", class: "btn btn-primary"%>
         </div>
