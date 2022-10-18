@@ -8,6 +8,11 @@
   height: 85vh;
 }
 
+#sign-up-container,
+#sign-in-container {
+  height: 85vh;
+}
+
 #index-img {
   height: 20vh;
   width: auto;
@@ -24,4 +29,16 @@
   color: black;
   text-decoration: none;
   font-size: xx-small;
+}
+
+.sign-box {
+  background-color: #226b80;
+  border-radius: 10%;
+  padding: 25px;
+  color: white;
+}
+
+.sign-text {
+  color: white;
+  font-size: small;
 }
