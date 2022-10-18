@@ -1,4 +1,4 @@
-<%#Admin menu - Reference: https://getbootstrap.com/docs/5.0/examples/sidebars/%>
+<%#Staff menu - Reference: https://getbootstrap.com/docs/5.0/examples/sidebars/%>
 
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar">
     <%#Logo Section%>
@@ -16,21 +16,6 @@
       <li class="nav-item">
         <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}" do%>
             <i class="fa fa-suitcase"></i> My Bookings
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}" do%>
-            <i class="fa fa-list"></i> All Bookings
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}" do%>
-            <i class="fa fa-tachometer"></i> Travel Insights
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}" do%>
-            <i class="fa fa-users"></i> Users
         <% end %>
       </li>
     </ul>

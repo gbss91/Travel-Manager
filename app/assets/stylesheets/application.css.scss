@@ -1,5 +1,7 @@
 /*Application-wide style - Inclduing main dashboard*/
 
+@import "font-awesome";
+
 html,
 body {
   height: 100vh;
@@ -23,6 +25,14 @@ body {
 .sidebar {
   min-height: 100vh;
   background-color: #226b80;
+}
+
+.sidebar a {
+  color: white !important;
+}
+
+.sidebar .active {
+  background-color: #eb8258 !important;
 }
 
 #logo-side {

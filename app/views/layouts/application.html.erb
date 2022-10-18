@@ -13,7 +13,11 @@
   <body>
     <div class="row" id="dashboard-wrapper">
       <div class="col-3">
-        <%= render 'dashboard/admin_menu'%>
+        <%if current_user.user_role == "Administrator"%>
+          <%= render 'dashboard/admin_menu'%>
+        <%else%>
+          <%= render 'dashboard/staff_menu'%>
+        <%end%>
       </div>
       <div class="col-9">
         <%= yield%>
