@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking_id: 
+  user_id: 1
+  booked_on: 2022-10-19
+  trip_date: 2022-10-19
+  destination: MyString
+  status: MyString
+  total_price: 1.5
+  currency: MyString
+
+two:
+  booking_id: 
+  user_id: 1
+  booked_on: 2022-10-19
+  trip_date: 2022-10-19
+  destination: MyString
+  status: MyString
+  total_price: 1.5
+  currency: MyString

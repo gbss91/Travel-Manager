@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flight_no: MyString
+  carrier: MyString
+  origin_city: MyString
+  destination_city: MyString
+  departure_time: 2022-10-19 00:46:25
+  arrival_time: 2022-10-19 00:46:25
+  duration: 2022-10-19 00:46:25
+  adults: 1
+  total_price: 1.5
+  currency: MyString
+
+two:
+  flight_no: MyString
+  carrier: MyString
+  origin_city: MyString
+  destination_city: MyString
+  departure_time: 2022-10-19 00:46:25
+  arrival_time: 2022-10-19 00:46:25
+  duration: 2022-10-19 00:46:25
+  adults: 1
+  total_price: 1.5
+  currency: MyString

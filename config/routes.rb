@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :hotels
+  resources :flights
+  resources :bookings
   
   devise_for :users
   get "home/pricing"
