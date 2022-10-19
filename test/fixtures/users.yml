@@ -1,16 +1,27 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+admin:
   id: 1
-  first_name: John
-  last_name: Smith
+  first_name: Rebaca
+  last_name: Gonzalez
   user_role: Administrator
-  email: test@test.com
+  email: admin@test.com
   encrypted_password: 1234567
   created_at: "2022-10-17 12:42:24.967635"
   updated_at: "2022-10-18 18:53:26.275210"
   travel_limit: 1000
   currency: EUR
   sign_in_count: 1
-#two: {}
-# column: value
+
+staff:
+  id: 2
+  first_name: John
+  last_name: Smith
+  user_role: Staff
+  email: staff@test.com
+  encrypted_password: 1234567
+  created_at: "2022-10-17 12:42:24.967635"
+  updated_at: "2022-10-18 18:53:26.275210"
+  travel_limit: 1000
+  currency: EUR
+  sign_in_count: 1

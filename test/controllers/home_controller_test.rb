@@ -1,3 +1,5 @@
+#Functional testing for home controller 
+
 require "test_helper"
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
@@ -7,7 +9,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get pricing" do
-    get home_pricing_path
+    get pricing_path
     assert_response :success
   end
 end

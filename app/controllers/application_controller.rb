@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  #before_action :authenticate_user!
+  before_action :authenticate_user! #Avoid users from accesing controlles without authentication 
   before_action :configure_permitted_parameters, if: :devise_controller?
+
 
   protected
 
