@@ -2,7 +2,7 @@
 
 admin:
   id: 1
-  first_name: Rebaca
+  first_name: Rebeca
   last_name: Gonzalez
   user_role: Administrator
   email: admin@test.com
