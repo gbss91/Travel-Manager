@@ -1,3 +1,5 @@
+#Basic sign up and sign in user flows 
+
 require "test_helper"
 
 class SignUpAndInFlowTest < ActionDispatch::IntegrationTest

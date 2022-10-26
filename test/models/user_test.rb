@@ -9,7 +9,7 @@ class UserTest < ActiveSupport::TestCase
     @user2 = users(:admin) #Second user with same details as user1
   end
 
-    test "should not save user without name" do
+    test "should not save user without first and last name" do
         user = User.new
         user.email = "test@test.com"
         assert_not user.save, "Saved the user without a name"

@@ -1,5 +1,6 @@
-require "test_helper"
+#Test dashboard. Correct dashboard should be displayed according to user role
 
+require "test_helper"
 class DashboardFlowTest < ActionDispatch::IntegrationTest
 
   include Devise::Test::IntegrationHelpers

@@ -1,7 +1,8 @@
-/*Application-wide style - Inclduing main dashboard*/
+/*Application-wide style - Including main dashboard*/
 
 @import "font-awesome";
 
+/*App containers*/
 html,
 body {
   height: 100vh;
@@ -15,7 +16,10 @@ body {
 
 #dashboard-container {
   min-height: 100vh;
+  padding: 15vh 6vw;
 }
+
+/*Dashboard sidebar*/
 
 .sidebar {
   min-height: 100vh;
@@ -46,6 +50,46 @@ body {
   background-color: #eb6c39 !important;
 }
 
+/* Dashboard main content*/
+
+.section-title {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: large;
+}
+
+/*Tables*/
+thead {
+  border-bottom: 2px solid #2E2F30;
+
+}
+
+tr a {
+  text-decoration: none;
+  color: black;
+}
+
+tr a:hover {
+  color: #eb8258;
+}
+
+/*Profile and Forms */
+
+.label-text {
+  margin: 0;
+  font-weight: bold;
+}
+
 .field {
   margin: 10px;
 }
+.link-dark {
+  padding-right: 10px;
+}
+
+

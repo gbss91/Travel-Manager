@@ -1,6 +1,6 @@
 <%#Admin menu - Reference: https://getbootstrap.com/docs/5.0/examples/sidebars/%>
 
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar sticky-top">
     <%#Logo Section%>
     <div class="align-items-center text-center">
         <%= image_tag 'logo-side.png', id: 'logo-side', class: 'mb-3 mb-md-0 me-md-auto'%>
@@ -29,7 +29,7 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}" do%>
+        <%= link_to users_path, class: "nav-link #{current_class_by(path: users_path)}" do%>
             <i class="fa fa-users"></i> Users
         <% end %>
       </li>
@@ -42,7 +42,7 @@
         <h5><%="#{current_user.first_name} #{current_user.last_name}"%></h5>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><%=link_to "Profile", user_path(current_user.id), class:"dropdown-item" %></li>
         <li><hr class="dropdown-divider"></li>
         <li><%=button_to "Sign Out", destroy_user_session_path, method: :delete ,class:"dropdown-item" %></li>
       </ul>

@@ -1,2 +1,60 @@
-<h1>User#index</h1>
-<p>Find me in app/views/user/index.html.erb</p>
+<div>
+  <div class="row section-title">
+    <h1>Users</h1>
+  </div>
+  <table class="table table-hover" id="user-table">
+    <thead >
+    <tr>
+      <th scope="col">
+        <%= link_to "First Name", :sort => "first_name", class:"text-decoration-none"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col">
+        <%= link_to "Last Name", :sort => "last_name", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col">Email</th>
+      <th scope="col">User ID</th>
+      <th scope="col">
+        <%= link_to "Role", :sort => "admin", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col">
+        <%= link_to "Travel Limit", :sort => "travel_limit", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%=user.id %></td>
+        <td><%= user.admin ? "Administrator" : "Staff"%></td>
+        <td><%= user.travel_limit ? "€#{user.travel_limit.to_i}" : "No Limit" %></td>
+        <td><%= link_to edit_user_registration_path, class:"text-dark" do  %>
+            <i class="fa fa-eye"></i>
+          <%end %>
+        </td>
+        <td><%= link_to edit_user_registration_path, class:"text-dark" do  %>
+            <i class="fa fa-pencil"></i>
+          <%end %>
+        </td>
+        <td><%= link_to edit_user_registration_path, class:"text-danger" do  %>
+            <i class="fa fa-trash"></i>
+          <%end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br>
+  <div class="float-end">
+    <%= link_to "Add User", new_user_path, class: "btn btn-primary float-right"%>
+  </div>
+</div>

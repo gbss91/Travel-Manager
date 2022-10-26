@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_19_001634) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_25_192243) do
   create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "booked_on", null: false
@@ -66,7 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_001634) do
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "user_role", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -76,11 +75,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_001634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "travel_limit"
-    t.float "currency"
+    t.string "currency"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.boolean "admin", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

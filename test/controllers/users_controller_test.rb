@@ -9,6 +9,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @admin = users(:admin) #Admin user 
   end
 
+
   test "should get index" do
     sign_in @admin 
     get users_path
@@ -16,10 +17,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get profile" do
-    sign_in @admin 
-    get "/users/:id"
+    sign_in @admin
+    get "/users/#{@admin.id}"
     assert_response :success
-  end 
+  end
 
   test "should ask unauthenticated user to sign in" do
     get users_path
