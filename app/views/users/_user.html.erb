@@ -1,7 +1,7 @@
 <div id="<%= dom_id user %>">
-
+  <%user_decorator = decorate(@user) %>
   <div class="row section-title">
-    <h1><%= "#{user.first_name} #{user.last_name}" %></h1>
+    <h1><%=user_decorator.full_name %></h1>
   </div>
   <div class="row">
     <p class="section-subtitle">Personal Details</p>
@@ -19,7 +19,7 @@
       <p class="label-text">User Id</p>
       <p><%=user.id%></p>
       <p class="label-text">Role</p>
-      <p><%= user.admin ? "Administrator" : "Staff"%></p>
+      <p><%=user_decorator.user_role%></p>
     </div>
   </div>
   <hr>
@@ -33,7 +33,7 @@
     </div>
     <div class="col-6">
       <p class="label-text">Travel Limit</p>
-      <p><%="€#{user.travel_limit || "No Limit"}"%></p>
+      <p><%= user_decorator.limit%></p>
       <p class="label-text">Total Spent</p>
       <p>data</p>
     </div>

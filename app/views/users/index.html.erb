@@ -30,18 +30,19 @@
     </thead>
     <tbody>
     <% @users.each do |user| %>
+    <%user_decorator = decorate(user) %>
       <tr>
-        <td><%= user.first_name %></td>
+        <td><%= user.first_name%></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%=user.id %></td>
-        <td><%= user.admin ? "Administrator" : "Staff"%></td>
-        <td><%= user.travel_limit ? "€#{user.travel_limit.to_i}" : "No Limit" %></td>
-        <td><%= link_to edit_user_registration_path, class:"text-dark" do  %>
+        <td><%=user_decorator.user_role%></td>
+        <td><%= user_decorator.limit %></td>
+        <td><%= link_to user, class:"text-dark" do  %>
             <i class="fa fa-eye"></i>
           <%end %>
         </td>
-        <td><%= link_to edit_user_registration_path, class:"text-dark" do  %>
+        <td><%= link_to edit_user_path(user), class:"text-dark" do  %>
             <i class="fa fa-pencil"></i>
           <%end %>
         </td>

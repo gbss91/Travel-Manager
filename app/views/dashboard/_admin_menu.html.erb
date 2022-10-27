@@ -39,7 +39,7 @@
     <%#Profile Section%>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle nav-link" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <h5><%="#{current_user.first_name} #{current_user.last_name}"%></h5>
+        <h5><%=@user_decorator.full_name%></h5>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
         <li><%=link_to "Profile", user_path(current_user.id), class:"dropdown-item" %></li>

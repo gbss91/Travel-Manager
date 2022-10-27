@@ -9,7 +9,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @admin = users(:admin) #Admin user 
   end
 
-
   test "should get index" do
     sign_in @admin 
     get users_path
@@ -19,6 +18,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should get profile" do
     sign_in @admin
     get "/users/#{@admin.id}"
+    assert_response :success
+  end
+
+  test "should get edit page" do
+    sign_in @admin
+    get edit_user_registration_path
     assert_response :success
   end
 

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :hotels
   resources :flights
   resources :bookings
-  devise_for :users
-  resources :users, only: [:show, :index, :new]
+  devise_for :users, :path_prefix => 'my'
+  resources :users
   get "/pricing", to: "home#pricing"
 
   #Redirect authenticated user to dashboard otherwise homepage

@@ -9,6 +9,8 @@ class AdminsFlowTest < ActionDispatch::IntegrationTest
 
   setup do
     @admin = users(:admin) #Admin user
+    @staff = users(:staff)
+
   end
 
   test "show all users for admin" do
@@ -22,6 +24,16 @@ class AdminsFlowTest < ActionDispatch::IntegrationTest
     # #There should be 3 rows (title and each user in fixture
     assert_select "tr", 3
 
+  end
+
+  test "view other user profile" do
+
+    #Admin signs in and goes to staff profile
+    sign_in @admin
+    get "/users/#{@staff.id}"
+
+    #Profile is rendered - check user email is rendered
+    assert_select "p", @staff.email
   end
 
 end
