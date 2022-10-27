@@ -1,5 +1,6 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: %i[ show edit update destroy ]
+  before_action :set_user_decorator
 
   # GET /flights or /flights.json
   def index
@@ -25,7 +26,7 @@ class FlightsController < ApplicationController
 
     respond_to do |format|
       if @flight.save
-        format.html { redirect_to flight_url(@flight), notice: "Flight was successfully created." }
+        format.html { redirect_to flight_url(@flight)}
         format.json { render :show, status: :created, location: @flight }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class FlightsController < ApplicationController
   def update
     respond_to do |format|
       if @flight.update(flight_params)
-        format.html { redirect_to flight_url(@flight), notice: "Flight was successfully updated." }
+        format.html { redirect_to flight_url(@flight) }
         format.json { render :show, status: :ok, location: @flight }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class FlightsController < ApplicationController
     @flight.destroy
 
     respond_to do |format|
-      format.html { redirect_to flights_url, notice: "Flight was successfully destroyed." }
+      format.html { redirect_to flights_url}
       format.json { head :no_content }
     end
   end
@@ -61,6 +62,11 @@ class FlightsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_flight
       @flight = Flight.find(params[:id])
+    end
+
+    #Set user decorator
+    def set_user_decorator
+      @user_decorator = helpers.decorate(current_user)
     end
 
     # Only allow a list of trusted parameters through.

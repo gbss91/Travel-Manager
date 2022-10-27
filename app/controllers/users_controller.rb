@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :is_admin, except: :show
+  before_action :set_user_decorator
 
   # GET all /users - Allows to sort table by params
   def index
@@ -18,11 +19,16 @@ class UsersController < ApplicationController
 
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to users_path
-    else
-      render 'edit'
+    respond_to do |format|
+      @user = User.find(params[:id])
+      if @user.update(user_params)
+        redirect_to users_path
+        format.html { redirect_to users_path }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -33,10 +39,13 @@ class UsersController < ApplicationController
     redirect_to root_path unless current_user.admin?
   end
 
-  private
+  #Set user decorator
+  def set_user_decorator
+    @user_decorator = helpers.decorate(current_user)
+  end
 
   def user_params
-    params.require(:user).permit(:first_name, :email, :admin, :travel_limit)
+    params.require(:user).permit(:first_name, :last_name, :email, :admin, :travel_limit)
   end
   
 end

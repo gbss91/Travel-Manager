@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ show edit update destroy ]
+  before_action :set_user_decorator
 
   # GET /bookings or /bookings.json
   def index
@@ -61,6 +62,11 @@ class BookingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
       @booking = Booking.find(params[:id])
+    end
+
+    #Set user decorator
+    def set_user_decorator
+      @user_decorator = helpers.decorate(current_user)
     end
 
     # Only allow a list of trusted parameters through.

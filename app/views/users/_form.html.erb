@@ -1,4 +1,13 @@
 <%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div>
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <%# User details section %>
 

@@ -1,5 +1,6 @@
 class HotelsController < ApplicationController
   before_action :set_hotel, only: %i[ show edit update destroy ]
+  before_action :set_user_decorator
 
   # GET /hotels or /hotels.json
   def index
@@ -61,6 +62,11 @@ class HotelsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_hotel
       @hotel = Hotel.find(params[:id])
+    end
+
+    #Set user decorator
+    def set_user_decorator
+      @user_decorator = helpers.decorate(current_user)
     end
 
     # Only allow a list of trusted parameters through.
