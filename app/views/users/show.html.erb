@@ -5,7 +5,6 @@
 <div class="float-end">
 
   <%# Admin can edit more details %>
-  <%= link_to "Back", :back, class: "link-dark" %>
   <% if current_user.admin%>
     <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary float-right"%>
   <%else %>

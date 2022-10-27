@@ -2,6 +2,16 @@
 
 <%= form_for(@user) do |f| %>
 
+  <% if @user.errors.any? %>
+    <div>
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="col-6">
 

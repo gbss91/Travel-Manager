@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :is_admin, except: :show
-  before_action :set_user_decorator
 
   # GET all /users - Allows to sort table by params
   def index
@@ -37,11 +36,6 @@ class UsersController < ApplicationController
   #Check if user is admin before performing actions
   def is_admin
     redirect_to root_path unless current_user.admin?
-  end
-
-  #Set user decorator
-  def set_user_decorator
-    @user_decorator = helpers.decorate(current_user)
   end
 
   def user_params
