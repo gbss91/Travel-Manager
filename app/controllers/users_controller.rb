@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       @user = User.find(params[:id])
       if @user.update(user_params)
-        redirect_to users_path
         format.html { redirect_to users_path }
         format.json { render :show, status: :ok, location: @user }
       else

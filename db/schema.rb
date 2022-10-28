@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_25_192243) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_27_230636) do
   create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "booked_on", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_192243) do
     t.datetime "last_sign_in_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "travel_limit"
+    t.string "travel_limit"
     t.string "currency"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
