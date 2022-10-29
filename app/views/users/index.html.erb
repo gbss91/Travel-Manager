@@ -46,7 +46,7 @@
             <i class="fa fa-pencil"></i>
           <%end %>
         </td>
-        <td><%= link_to edit_user_registration_path, class:"text-danger" do  %>
+        <td><%= link_to user, class:"text-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do  %>
             <i class="fa fa-trash"></i>
           <%end %>
         </td>

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  resources :hotels
-  resources :flights
-  resources :bookings
   devise_for :users, :path_prefix => 'my'
   resources :users
+
+  #Nested routes for bookings
+  resources :bookings, shallow: true do
+    resources :flights
+    resources :hotels
+  end
   get "/pricing", to: "home#pricing"
 
   #Redirect authenticated user to dashboard otherwise homepage
@@ -11,7 +14,6 @@ Rails.application.routes.draw do
     root to: "dashboard#main", as: :dashboard
   end
   
-  #Root for unauthenticated users
   root "home#index"
 
 end

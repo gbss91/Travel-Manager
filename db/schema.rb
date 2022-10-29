@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_27_230636) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_29_130958) do
   create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "booked_on", null: false
@@ -36,14 +36,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_230636) do
     t.string "currency", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "booking_id", null: false
+    t.bigint "booking_id", null: false
     t.index ["booking_id"], name: "index_flights_on_booking_id"
     t.index ["carrier"], name: "index_flights_on_carrier"
     t.index ["flight_no"], name: "index_flights_on_flight_no"
   end
 
   create_table "hotels", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "booking_id", null: false
+    t.bigint "booking_id", null: false
     t.string "hotel_name", null: false
     t.string "hotel_brand"
     t.text "address"
