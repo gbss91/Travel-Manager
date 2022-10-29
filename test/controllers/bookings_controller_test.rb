@@ -1,12 +1,17 @@
 require "test_helper"
 
 class BookingsControllerTest < ActionDispatch::IntegrationTest
+
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @booking = bookings(:one)
+    @user = users(:admin)
+    sign_in @user
   end
 
   test "should get index" do
-    get bookings_url
+    get bookings_path
     assert_response :success
   end
 
@@ -17,7 +22,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create booking" do
     assert_difference("Booking.count") do
-      post bookings_url, params: { booking: { booked_on: @booking.booked_on, booking_id: @booking.booking_id, currency: @booking.currency, destination: @booking.destination, status: @booking.status, total_price: @booking.total_price, trip_date: @booking.trip_date, user_id: @booking.user_id } }
+      post bookings_url, params: { booking: { booked_on: @booking.booked_on_date, booking_id: @booking.booking_id, currency: @booking.currency, destination: @booking.destination, status: @booking.status, total_price: @booking.total_price, trip_date: @booking.trip_date, user_id: @booking.user_id } }
     end
 
     assert_redirected_to booking_url(Booking.last)

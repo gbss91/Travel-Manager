@@ -11,42 +11,40 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
+  <div id="new-booking-box">
+    <div class="row">
+
+      <div class="col-3">
+        <%= form.text_field :origin, autofocus: true ,class:"form-control", placeholder: "From", value: 'Dublin (DUB)'%>
+      </div>
+
+      <div class="col-3">
+        <%= form.text_field :destination, class:"form-control", placeholder: "To" %>
+      </div>
+
+      <div class="col-3">
+        <%= form.date_select :departure_date, class:"form-control"%>
+      </div>
+
+      <div class="col-3">
+        <%= form.date_select :return_date, class:"form-control"%>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-3">
+        <%= form.select :booking_type, class:"form-select", value: 'Return'%>
+      </div>
+
+      <div class="col-3">
+        <%= form.submit "Search" %>
+      </div>
+
+
+    </div>
   </div>
 
-  <div>
-    <%= form.label :booked_on, style: "display: block" %>
-    <%= form.date_field :booked_on %>
-  </div>
 
-  <div>
-    <%= form.label :trip_date, style: "display: block" %>
-    <%= form.date_field :trip_date %>
-  </div>
 
-  <div>
-    <%= form.label :destination, style: "display: block" %>
-    <%= form.text_field :destination %>
-  </div>
-
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div>
-    <%= form.label :total_price, style: "display: block" %>
-    <%= form.text_field :total_price %>
-  </div>
-
-  <div>
-    <%= form.label :currency, style: "display: block" %>
-    <%= form.text_field :currency %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

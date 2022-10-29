@@ -10,17 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_27_230636) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_01_194721) do
   create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.date "booked_on", null: false
-    t.date "trip_date", null: false
+    t.date "booked_on_date", null: false
+    t.string "origin", null: false
     t.string "destination", null: false
+    t.date "departure_date", null: false
+    t.date "return_date", null: false
+    t.integer "adults", null: false
+    t.string "booking_class"
     t.string "status", null: false
-    t.float "total_price", null: false
-    t.string "currency", null: false
+    t.decimal "total_price", precision: 10
+    t.string "currency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "booking_type", null: false
+    t.index ["destination"], name: "index_bookings_on_destination"
+    t.index ["status"], name: "index_bookings_on_status"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "flights", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -34,16 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_230636) do
     t.integer "adults", null: false
     t.float "total_price", null: false
     t.string "currency", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "booking_id", null: false
+    t.bigint "booking_id", null: false
     t.index ["booking_id"], name: "index_flights_on_booking_id"
     t.index ["carrier"], name: "index_flights_on_carrier"
     t.index ["flight_no"], name: "index_flights_on_flight_no"
   end
 
   create_table "hotels", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "booking_id", null: false
+    t.bigint "booking_id", null: false
     t.string "hotel_name", null: false
     t.string "hotel_brand"
     t.text "address"
@@ -56,8 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_230636) do
     t.float "rate", null: false
     t.float "total_price", null: false
     t.string "currency", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_hotels_on_booking_id"
     t.index ["hotel_brand"], name: "index_hotels_on_hotel_brand"
     t.index ["hotel_name"], name: "index_hotels_on_hotel_name"

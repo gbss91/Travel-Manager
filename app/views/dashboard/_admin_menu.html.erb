@@ -9,27 +9,27 @@
     <%#Menu Section%>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <%= link_to(root_path, class: "nav-link #{current_class_by(path: root_path)}") do %>
-            <i class="fa fa-search"></i> Search
+        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}", data: { turbo:false } do %>
+            <i class="fa fa-search"></i> New Booking
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}" do%>
+        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}", data: { turbo:false } do%>
             <i class="fa fa-suitcase"></i> My Bookings
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}" do%>
+        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}", data: { turbo:false } do%>
             <i class="fa fa-list"></i> All Bookings
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}" do%>
+        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}", data: { turbo:false } do%>
             <i class="fa fa-tachometer"></i> Travel Insights
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to users_path, class: "nav-link #{current_class_by(path: users_path)}" do%>
+        <%= link_to users_path, class: "nav-link #{current_class_by(path: users_path)}", data: { turbo:false } do%>
             <i class="fa fa-users"></i> Users
         <% end %>
       </li>

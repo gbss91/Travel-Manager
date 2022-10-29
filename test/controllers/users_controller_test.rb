@@ -27,6 +27,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get new page" do
+    sign_in @admin
+    get new_user_path
+    assert_response :success
+  end
+
   test "should ask unauthenticated user to sign in" do
     get users_path
     assert_redirected_to new_user_session_path

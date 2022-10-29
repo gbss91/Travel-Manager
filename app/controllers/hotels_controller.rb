@@ -1,5 +1,6 @@
 class HotelsController < ApplicationController
-  before_action :set_hotel, only: %i[ show edit update destroy ]
+  before_action :set_hotel, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /hotels or /hotels.json
   def index
@@ -61,6 +62,11 @@ class HotelsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_hotel
       @hotel = Hotel.find(params[:id])
+    end
+
+    def set_booking
+      @booking = Booking.find(params[:id])
+
     end
 
     # Only allow a list of trusted parameters through.

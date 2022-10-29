@@ -10,7 +10,7 @@ class UserDecorator < BaseDecorator
   end
 
   def limit
-    travel_limit ? "€#{travel_limit}" : "No Limit"
+    (travel_limit && !travel_limit.empty?) ? "€#{travel_limit}" : "No Limit"
   end
 
 end

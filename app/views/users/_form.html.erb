@@ -38,36 +38,43 @@
       </div>
 
       <div class="field form-group">
-        <%= form.label :admin, style: "display: block", class: "label-text"  %>
-        <%= form.text_field :admin, class:"form-control" %>
+        <%= form.label :admin, "User Role", style: "display: block", class: "label-text"  %>
+        <%= form.select :admin, [['Administrator', true], ['Staff', false]],  class: "form-select"%>
       </div>
+
     </div>
   </div>
-  <hr>
 
-  <%# Password section %>
+  <%# Password section - Only renders if new user /user/new %>
 
-  <div class="row">
+  <% if user.new_record? %>
+    <br>
+    <hr>
+    <br>
+    <div class="row">
 
-    <p>Please enter a new temporary password for the user </p>
-    <div class="col-6">
+      <p>Please enter a new temporary password for the user </p>
+      <div class="col-6">
 
-      <div class="field form-group">
-        <%= form.label :password, style: "display: block", class: "label-text" %>
-        <%= form.text_field :password, autocomplete: "new-password", class:"form-control"%>
+        <div class="field form-group">
+          <%= form.label :password, style: "display: block", class: "label-text" %>
+          <%= form.password_field :password, autocomplete: "new-password", class:"form-control", placeholder: "Password (min 6 characters)"%>
+        </div>
+
+      </div>
+      <div class="col-6">
+
+        <div class="field form-group">
+          <%= form.label :password_confirmation, style: "display: block", class: "label-text" %>
+          <%= form.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder: "Password (min 6 characters)"%>
+        </div>
+
       </div>
 
     </div>
-    <div class="col-6">
 
-      <div class="field form-group">
-        <%= form.label :password_confirmation, style: "display: block", class: "label-text" %>
-        <%= form.text_field :password_confirmation, autocomplete: "new-password", class:"form-control"%>
-      </div>
+  <%end %>
 
-    </div>
-
-  </div>
   <br>
   <div class="row float-end">
     <div>

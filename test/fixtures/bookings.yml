@@ -2,18 +2,26 @@
 
 one:
   user_id: 1
-  booked_on: 2022-10-19
-  trip_date: 2022-10-19
-  destination: MyString
-  status: MyString
-  total_price: 1.5
-  currency: MyString
+  booked_on_date: 2022-11-01
+  origin: London
+  destination: Dublin
+  departure_date: 2022-11-01
+  return_date: 2022-11-01
+  adults: 1
+  booking_class: "Economy"
+  status: Prebook
+  total_price: 29.99
+  currency: EUR
 
 two:
-  user_id: 1
-  booked_on: 2022-10-19
-  trip_date: 2022-10-19
-  destination: MyString
-  status: MyString
-  total_price: 1.5
-  currency: MyString
+  user_id: 2
+  booked_on_date: 2022-11-01
+  origin: Dublin
+  destination: New York
+  departure_date: 2022-11-01
+  return_date: 2022-11-01
+  adults: 1
+  booking_class: "First"
+  status: Completed
+  total_price: 1999.99
+  currency: EUR

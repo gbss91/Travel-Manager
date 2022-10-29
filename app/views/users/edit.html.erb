@@ -1,57 +1,6 @@
-<h2>Edit User</h2>
+<h1>Edit User</h1>
 
-<%= form_for(@user) do |f| %>
-
-  <% if @user.errors.any? %>
-    <div>
-      <ul>
-        <% @user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="row">
-    <div class="col-6">
-
-      <div class="field form-group">
-        <%= f.label :first_name, style: "display: block", class: "label-text" %>
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",  class:"form-control"%>
-      </div>
-
-      <div class="field form-group">
-        <%= f.label :last_name, style: "display: block", class: "label-text" %>
-        <%= f.text_field :last_name, autocomplete: "last_name", class:"form-control" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :travel_limit, style: "display: block", class: "label-text" %>
-        <%= f.number_field :travel_limit, class:"form-control" %>
-      </div>
-
-    </div>
-    <div class="col-6">
-
-      <div class="field form-group">
-        <%= f.label :email ,style: "display: block", class: "label-text"  %>
-        <%= f.email_field :email, autocomplete: "email",  class:"form-control"%>
-      </div>
-
-      <div class="field form-group">
-        <%= f.label :admin, "User Role", style: "display: block", class: "label-text"  %>
-        <%= f.select :admin, [['Administrator', true], ['Staff', false]],  class: "form-select"%>
-      </div>
-
-    </div>
-  </div>
-  <br>
-  <div class="row float-end actions">
-    <div>
-      <%= f.submit "Save", class: "btn btn-primary" %>
-    </div>
-  </div>
-<% end %>
+<%= render "form", user: @user %>
 
 
 
