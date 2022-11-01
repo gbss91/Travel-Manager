@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :is_admin, only: :index
   before_action :set_booking, only: %i[ show edit update destroy ]
 
   # GET /bookings or /bookings.json
@@ -63,8 +64,13 @@ class BookingsController < ApplicationController
       @booking = Booking.find(params[:id])
     end
 
+    #Check if user is admin before performing actions
+    def is_admin
+      redirect_to root_path unless current_user.admin?
+    end
+
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.require(:booking).permit(:user_id, :booked_on, :trip_date, :destination, :status, :total_price, :currency)
+      params.require(:booking).permit(:user_id, :booked_on_date, :origin, :destination, :departure_date, :return_date, :adults, :booking_class, :status, :total_price, :currency, :booking_type)
     end
 end

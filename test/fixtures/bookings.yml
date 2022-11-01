@@ -12,6 +12,7 @@ one:
   status: Prebook
   total_price: 29.99
   currency: EUR
+  booking_type: "Return"
 
 two:
   user_id: 2
@@ -25,3 +26,4 @@ two:
   status: Completed
   total_price: 1999.99
   currency: EUR
+  booking_type: "Return"

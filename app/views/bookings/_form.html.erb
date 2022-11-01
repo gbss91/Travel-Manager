@@ -1,19 +1,21 @@
-<%= form_with(model: booking) do |form| %>
-  <% if booking.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+<div id="new-booking-box">
 
-      <ul>
-        <% booking.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form_with(model: booking) do |form| %>
 
-  <div id="new-booking-box">
+    <% if booking.errors.any? %>
+      <div>
+        <ul>
+          <% booking.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%=form.hidden_field :status, value: "Prebooked" %>
+    <%=form.hidden_field :booked_on_date, value: DateTime.current.to_date %>
+    <%=form.hidden_field :user_id, value: current_user.id %>
     <div class="row">
-
       <div class="col-3">
         <%= form.text_field :origin, autofocus: true ,class:"form-control", placeholder: "From", value: 'Dublin (DUB)'%>
       </div>
@@ -23,28 +25,35 @@
       </div>
 
       <div class="col-3">
-        <%= form.date_select :departure_date, class:"form-control"%>
+        <%= form.date_field :departure_date, class:"form-control"%>
       </div>
 
       <div class="col-3">
-        <%= form.date_select :return_date, class:"form-control"%>
+        <%= form.date_field :return_date, class:"form-control"%>
       </div>
 
     </div>
     <div class="row">
 
       <div class="col-3">
-        <%= form.select :booking_type, class:"form-select", value: 'Return'%>
+        <%= form.select :booking_type, ["Return", "One-way"], class:"form-select", selected: "Return"%>
       </div>
 
       <div class="col-3">
-        <%= form.submit "Search" %>
+        <%= form.number_field :adults, class:"form-control", value: 1, placeholder: "Adults"%>
       </div>
 
+      <div class="col-3">
+        <%= form.select :booking_class, ["Economy", "Premium", "Business"], selected: "Economy"%>
+      </div>
 
     </div>
-  </div>
+    <br>
+    <div class="row float-end">
+      <div>
+        <%= form.submit "Search", class: "btn btn-primary"%>
+      </div>
+    </div>
 
-
-
-<% end %>
+  <% end %>
+</div>
