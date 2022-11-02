@@ -15,6 +15,11 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get current_user_bookings" do
+    get my_bookings_url
+    assert_response :success
+  end
+
   test "should get new" do
     get new_booking_url
     assert_response :success

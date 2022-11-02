@@ -1,14 +1,61 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Bookings</h1>
+<div>
+  <div class="row section-title">
+    <h1>All Bookings</h1>
+  </div>
+  <table class="table table-hover" id="bookings-table">
+    <thead >
+    <tr>
+      <th scope="col">
+        <%= link_to "Employee Name", :sort => "first_name", class:"text-decoration-none"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col">
+        <%= link_to "Origin", :sort => "origin", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col">
+        <%= link_to "Destination", :sort => "destination", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col">
+        <%= link_to "Date", :sort => "departure_date", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col">
+        <%= link_to "Total", :sort => "total_price", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col">
+        <%= link_to "Status", :sort => "status", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @bookings.each do |booking| %>
+      <%booking_decorator = decorate(booking) %>
+      <tr>
+        <td><%= booking_decorator.employee(booking.user_id) %></td>
+        <td><%= booking.origin %></td>
+        <td><%= booking.destination %></td>
+        <td><%= booking_decorator.formatted_date(booking.departure_date) %></td>
+        <td><%= booking_decorator.total%></td>
+        <td><%= booking.status %></td>
+        <td><%= link_to booking, class:"text-dark" do  %>
+            <i class="fa fa-eye"></i>
+          <%end %>
+        </td>
+        <td><%= link_to booking, class:"text-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do  %>
+            <i class="fa fa-trash"></i>
+          <%end %>
+        </td>
+      </tr>
 
-<div id="bookings">
-  <% @bookings.each do |booking| %>
-    <%= render booking %>
-    <p>
-      <%= link_to "Show this booking", booking %>
-    </p>
-  <% end %>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New booking", new_booking_path %>

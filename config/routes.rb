@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :flights
     resources :hotels
   end
+
+  get "/my_bookings", to: "bookings#current_user_bookings"
   get "/pricing", to: "home#pricing"
 
   #Redirect authenticated user to dashboard otherwise homepage

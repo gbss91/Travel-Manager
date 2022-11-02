@@ -63,6 +63,16 @@ body {
   font-size: large;
 }
 
+.link-simple {
+  text-decoration: none;
+  color: inherit;
+
+}
+
+.link-simple:hover {
+  color: inherit;
+}
+
 /*Tables*/
 thead {
   border-bottom: 2px solid #2E2F30;
@@ -79,7 +89,6 @@ tr a:hover {
 }
 
 /*Profile and Forms */
-
 .label-text {
   margin: 0;
   font-weight: bold;
@@ -94,8 +103,57 @@ tr a:hover {
 
 /* Bookings */
 #new-booking-box {
-  background-color: #FFFBFB;
+  background-color: #f8f8f7;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 40px 20px;
 }
+
+#new-booking-box .form-select{
+  border: none;
+  background-color: #f8f8f7;
+  padding-left: 0;
+}
+
+.booking-box {
+  height: 120px;
+  background-color: #f8f8f7;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-top: 5vh;
+}
+
+.booking-box-text {
+  padding: 30px;
+}
+
+.booking-box-text p {
+  margin-bottom: 0;
+}
+
+.booking-img {
+  height: 100%;
+}
+
+.booking-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0 20px 20px 0;
+}
+
+.search_field {
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
 
 

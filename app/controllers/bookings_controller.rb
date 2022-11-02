@@ -1,10 +1,15 @@
 class BookingsController < ApplicationController
   before_action :is_admin, only: :index
-  before_action :set_booking, only: %i[ show edit update destroy ]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   # GET /bookings or /bookings.json
   def index
     @bookings = Booking.all
+  end
+
+  #GET /bookings for current user
+  def current_user_bookings
+    @bookings = current_user.bookings
   end
 
   # GET /bookings/1 or /bookings/1.json

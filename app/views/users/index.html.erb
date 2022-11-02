@@ -30,7 +30,7 @@
     </thead>
     <tbody>
     <% @users.each do |user| %>
-    <%user_decorator = decorate(user) %>
+      <%user_decorator = decorate(user) %>
       <tr>
         <td><%= user.first_name%></td>
         <td><%= user.last_name %></td>

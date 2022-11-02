@@ -1,0 +1,30 @@
+<div class="row section-title">
+  <h1>All Bookings</h1>
+</div>
+
+<% @bookings.each do |booking| %>
+  <%booking_decorator = decorate(booking) %>
+  <%= link_to booking_path(booking.id), class: "link-simple" do %>
+    <div  class="d-flex align-items-center booking-box">
+      <div class="col-9 booking-box-text ">
+        <div class="row">
+          <div class="col-4">
+            <h5><%= booking.destination %></h5>
+            <p class="text-muted"><%= booking_decorator.formatted_date(booking.departure_date) %></p>
+          </div>
+
+          <div class="col-4 d-flex align-items-center">
+            <p><strong>Booking ID:</strong> <%= booking.id %></p>
+          </div>
+
+          <div class="col-4 d-flex align-items-center">
+            <p><%= booking.status %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 booking-img">
+        <%= image_tag('london.jpg')%>
+      </div>
+    </div>
+  <%end %>
+<% end %>

@@ -14,18 +14,13 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}", data: { turbo:false } do%>
+        <%= link_to my_bookings_path, class: "nav-link #{current_class_by(path: my_bookings_path)}", data: { turbo:false } do%>
             <i class="fa fa-suitcase"></i> My Bookings
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}", data: { turbo:false } do%>
+        <%= link_to bookings_path, class: "nav-link #{current_class_by(path: bookings_path)}", data: { turbo:false } do%>
             <i class="fa fa-list"></i> All Bookings
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to root_path, class: "nav-link #{current_class_by(path: root_path)}", data: { turbo:false } do%>
-            <i class="fa fa-tachometer"></i> Travel Insights
         <% end %>
       </li>
       <li class="nav-item">
