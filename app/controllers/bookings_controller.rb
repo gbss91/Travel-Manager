@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+
   end
 
   # GET /bookings/1/edit
@@ -28,6 +29,7 @@ class BookingsController < ApplicationController
   # POST /bookings or /bookings.json
   def create
     @booking = Booking.new(booking_params)
+    @booking.img_url = CityImage.call(@booking.destination)
 
     respond_to do |format|
       if @booking.save
@@ -76,6 +78,6 @@ class BookingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.require(:booking).permit(:user_id, :booked_on_date, :origin, :destination, :departure_date, :return_date, :adults, :booking_class, :status, :total_price, :currency, :booking_type)
+      params.require(:booking).permit(:user_id, :booked_on_date, :origin, :destination, :departure_date, :return_date, :adults, :booking_class, :status, :total_price, :currency, :booking_type, :img_url)
     end
 end

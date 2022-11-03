@@ -4,6 +4,7 @@
 
 <% @bookings.each do |booking| %>
   <%booking_decorator = decorate(booking) %>
+  <%img_url = booking.img_url %>
   <%= link_to booking_path(booking.id), class: "link-simple" do %>
     <div  class="d-flex align-items-center booking-box">
       <div class="col-9 booking-box-text ">
@@ -23,7 +24,7 @@
         </div>
       </div>
       <div class="col-3 booking-img">
-        <%= image_tag('london.jpg')%>
+        <%= image_tag "#{img_url}"%>
       </div>
     </div>
   <%end %>

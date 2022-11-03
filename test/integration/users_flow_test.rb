@@ -40,11 +40,22 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
 
     #User signs in and goes to their profile route
     sign_in @staff
-    get "/users/3"
+    get "/users/1"
 
     #Check name matches staff name
     assert_select "p", @staff.first_name
 
+  end
+
+  test "see my bookings" do
+
+    #User signs in and goes to their bookings
+    sign_in @staff
+    get my_bookings_url
+    assert_response :success
+
+    #Display user bookings
+    assert_select "h5", "New York"
   end
 
 end

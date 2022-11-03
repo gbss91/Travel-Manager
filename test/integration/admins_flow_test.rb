@@ -70,5 +70,17 @@ class AdminsFlowTest < ActionDispatch::IntegrationTest
     assert_select "tr", 2
   end
 
+  test "see all bookings list" do
+
+    #Admin sign in and goes user list
+    sign_in @admin
+    get bookings_path
+    assert_response :success
+
+    #Displaye user list
+    assert_select "tr", 4
+
+  end
+
 
 end
