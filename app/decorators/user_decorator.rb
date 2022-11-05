@@ -9,8 +9,4 @@ class UserDecorator < BaseDecorator
     admin ?  "Administrator" : "Staff"
   end
 
-  def limit
-    (travel_limit && !travel_limit.empty?) ? "€#{travel_limit}" : "No Limit"
-  end
-
 end

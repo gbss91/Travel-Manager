@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
-  validates :first_name, :last_name, :email, presence: true
+  validates :first_name, :last_name, :email, presence: true, allow_blank: false
   validates_inclusion_of :admin, :in => [true, false]
 
   has_many :bookings, dependent: :delete_all

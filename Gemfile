@@ -36,6 +36,8 @@ gem 'devise'
 # External GEM for icons [https://github.com/bokmann/font-awesome-rails]
 gem "font-awesome-rails"
 
+# External GEM for HTTP [https://github.com/httprb/http]
+gem "http"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

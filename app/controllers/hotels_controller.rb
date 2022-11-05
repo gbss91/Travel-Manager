@@ -1,15 +1,7 @@
 class HotelsController < ApplicationController
-  before_action :set_hotel, only: [:show, :edit, :update, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_hotel, only: [:edit, :update, :destroy]
+  before_action :set_booking, only: [:edit, :update, :destroy]
 
-  # GET /hotels or /hotels.json
-  def index
-    @hotels = Hotel.all
-  end
-
-  # GET /hotels/1 or /hotels/1.json
-  def show
-  end
 
   # GET /hotels/new
   def new

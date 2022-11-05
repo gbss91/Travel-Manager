@@ -24,7 +24,11 @@
         </div>
       </div>
       <div class="col-3 booking-img">
-        <%= image_tag "#{img_url}"%>
+        <% if img_url.nil? %>
+          <%= image_tag "airport-board.jpg"%>
+        <% else %>
+          <%= image_tag "#{img_url}"%>
+        <% end %>
       </div>
     </div>
   <%end %>

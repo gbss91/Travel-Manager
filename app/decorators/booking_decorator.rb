@@ -13,4 +13,6 @@ class BookingDecorator < BaseDecorator
     "€#{total_price}"
   end
 
+
+
 end

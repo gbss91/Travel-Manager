@@ -19,10 +19,6 @@
         <%= link_to "Role", :sort => "admin", class:"text-dark"%>
         <i class="fa fa-sort" aria-hidden="true"></i>
       </th>
-      <th scope="col">
-        <%= link_to "Travel Limit", :sort => "travel_limit", class:"text-dark"%>
-        <i class="fa fa-sort" aria-hidden="true"></i>
-      </th>
       <th scope="col"></th>
       <th scope="col"></th>
       <th scope="col"></th>
@@ -37,7 +33,6 @@
         <td><%= user.email %></td>
         <td><%=user.id %></td>
         <td><%=user_decorator.user_role%></td>
-        <td><%= user_decorator.limit %></td>
         <td><%= link_to user, class:"text-dark" do  %>
             <i class="fa fa-eye"></i>
           <%end %>

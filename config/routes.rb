@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #Nested routes for bookings
   resources :bookings, except: :new do
     resources :flights
-    resources :hotels
+    resources :hotels, only
   end
 
   get "/my_bookings", to: "bookings#current_user_bookings"
