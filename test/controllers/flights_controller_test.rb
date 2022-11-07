@@ -5,7 +5,7 @@ class FlightsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @flight = flights(:one)
+    @flight = flights(:flight_one)
     @user = users(:admin) #Admin user
     @booking = bookings(:one)
   end
@@ -29,10 +29,4 @@ class FlightsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "should destroy flight" do
-    sign_in @user #Sign in user 
-    assert_difference("Flight.count", -1) do
-      delete booking_flight_url(booking_id: Booking.last.id, id: @flight.id)
-    end
-  end
 end

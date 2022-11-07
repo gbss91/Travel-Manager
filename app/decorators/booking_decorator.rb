@@ -10,9 +10,15 @@ class BookingDecorator < BaseDecorator
   end
 
   def total
-    "€#{total_price}"
+    "EUR#{total_price}"
   end
 
-
+  def status?
+    if status == "Confirmed" && departure_date.past?
+      ("<td>Past Booking</td>").html_safe
+    else
+      ("<td class='text-success'>#{status}</td>").html_safe #Returns confirm green for future reservations
+    end
+  end
 
 end

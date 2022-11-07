@@ -1,17 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+hotel_one:
+  id: 1
   booking_id: 1
-  hotel_name: "Marriott Miami"
-  address: "123 Avenue"
-  city: "Miami"
+  hotel_name: Marriott Miami
+  address: 123 Avenue
+  city: Miami
   check_in_date: 2022-10-19
-  room_type: "Standard"
+  room_type: Standard
   no_nights: 1
   rate: 100
   total_price: 100
 
-two:
+hotel_two:
+  id: 2
   booking_id: 2
   hotel_name: MyString
   address: MyText

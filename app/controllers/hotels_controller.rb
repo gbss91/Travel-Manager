@@ -20,15 +20,9 @@ class HotelsController < ApplicationController
       if @hotel.save
         format.html { redirect_to  booking_path(@booking)}
       else
-        format.html { render :results, status: :unprocessable_entity }
-        format.json { render json: @hotel.errors, status: :unprocessable_entity }
+        format.html { redirect_to booking_hotels_results_path(@booking), status: :unprocessable_entity }
       end
     end
-  end
-
-  # DELETE /hotels/1 or /hotels/1.json
-  def destroy
-    @hotel.destroy
   end
 
   private

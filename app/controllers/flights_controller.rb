@@ -27,11 +27,6 @@ class FlightsController < ApplicationController
     end
   end
 
-  # DELETE /flights/1 or /flights/1.json
-  def destroy
-    @flight.destroy
-  end
-
   private
 
     def get_booking

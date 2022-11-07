@@ -1,5 +1,9 @@
 <%= render @booking %>
 <br>
-<div>
-  <%= button_to "Delete Booking", @booking, method: :delete, form: { data: { turbo_confirm: 'Cancelling booking cannot be reverted. Do you want to proceed?' }}, class: "btn btn-primary float-end" %>
-</div>
+
+<%# Only shows cancel button for bookings that are confirmed and not flown %>
+<% if @booking.status == "Confirmed" && !@booking.departure_date.past?%>
+  <div>
+    <%= button_to "Cancel Booking", @booking, method: :delete, form: { data: { turbo_confirm: 'Cancelling this booking cannot be undone. Do you want to proceed?' }}, class: "btn btn-primary float-end" %>
+  </div>
+<% end %>

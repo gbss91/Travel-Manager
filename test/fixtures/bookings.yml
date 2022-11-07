@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   user_id: 1
   booked_on_date: 2022-11-01
   origin: New York
@@ -16,6 +17,7 @@ one:
   booking_type: "Return"
 
 two:
+  id: 2
   user_id: 2
   booked_on_date: 2022-11-01
   origin: New York
@@ -31,6 +33,7 @@ two:
   booking_type: "Return"
 
 three:
+  id: 3
   user_id: 2
   booked_on_date: 2022-11-01
   origin: London

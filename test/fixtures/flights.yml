@@ -1,25 +1,41 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+flight_one:
+  id: 1
   booking_id: 1
-  flight_no: MyString
-  carrier: MyString
-  origin_city: MyString
-  destination_city: MyString
-  departure_time: 2022-10-19 00:46:25
-  arrival_time: 2022-10-19 00:46:25
-  duration: 2022-10-19 00:46:25
+  flight_no: DL45
+  carrier: Delta
+  origin_city: NYC
+  destination_city: MIA
+  departure_time: 2023-01-10 00:46:25
+  arrival_time: 2023-01-10 04:46:25
+  duration: 2023-01-10 03:46:25
   adults: 1
   total_price: 1.5
 
-two:
+flight_two:
+  id: 2
   booking_id: 2
-  flight_no: MyString
-  carrier: MyString
-  origin_city: MyString
-  destination_city: MyString
-  departure_time: 2022-10-19 00:46:25
-  arrival_time: 2022-10-19 00:46:25
-  duration: 2022-10-19 00:46:25
+  flight_no: UA123
+  carrier: United
+  origin_city: NYC
+  destination_city: LAX
+  departure_time: 2022-12-21 16:46:25
+  arrival_time: 2022-12-21 21:46:25
+  duration: 2022-10-19 04:46:25
   adults: 1
-  total_price: 1.5
+  total_price: 135.00
+
+flight_three:
+  id: 3
+  booking_id: 2
+  flight_no: UA32
+  carrier: United
+  origin_city: LAX
+  destination_city: NYC
+  departure_time: 2022-12-23 00:46:25
+  arrival_time: 2022-12-24 05:15:25
+  duration: 2022-10-19 05:15:25
+  adults: 1
+  total_price: 98.00
+

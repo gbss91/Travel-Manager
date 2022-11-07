@@ -5,9 +5,8 @@ class HotelsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @hotel = hotels(:one)
+    @hotel = hotels(:hotel_one)
     @staff = users(:staff) #Staff
-    @admin = users(:admin) #Admin
     @booking = bookings(:one)
   end
 
@@ -18,16 +17,13 @@ class HotelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create hotel" do
+    sign_in @staff
     assert_difference("Hotel.count") do
-      post booking_hotels_url(@booking), params: {hotel_name: @hotel.hotel_name, address: @hotel.address, room_type: @hotel.room_type, rate: @hotel.rate}
+      post booking_hotels_url(@booking),params: {hotel_name: @hotel.hotel_name, address: @hotel.address, room_type: @hotel.room_type, rate: @hotel.rate}
     end
 
     assert_redirected_to booking_url
   end
 
-  test "should destroy hotel" do
-    assert_difference("Hotel.count", -1) do
-      delete booking_hotel_url(@hotel)
-    end
-  end
+
 end

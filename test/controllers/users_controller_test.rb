@@ -38,4 +38,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_path
   end
 
+  test "should destroy user" do
+    sign_in @admin #Sign in user
+    assert_difference("User.count", -1) do
+      delete user_url(@admin)
+    end
+  end
+
 end

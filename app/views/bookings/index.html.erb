@@ -31,7 +31,6 @@
         <i class="fa fa-sort" aria-hidden="true"></i>
       </th>
       <th scope="col"></th>
-      <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
@@ -43,13 +42,9 @@
         <td><%= booking.destination %></td>
         <td><%= booking_decorator.formatted_date(booking.departure_date) %></td>
         <td><%= booking_decorator.total%></td>
-        <td><%= booking.status %></td>
+        <%= booking_decorator.status?%>
         <td><%= link_to booking, class:"text-dark" do  %>
             <i class="fa fa-eye"></i>
-          <%end %>
-        </td>
-        <td><%= link_to booking, class:"text-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do  %>
-            <i class="fa fa-trash"></i>
           <%end %>
         </td>
       </tr>

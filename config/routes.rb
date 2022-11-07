@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   #Nested routes for bookings
   resources :bookings, except: :new do
-    resources :flights, only: [:create, :destroy]
-    resources :hotels, only: [:create, :destroy]
+    resources :flights, only: [:create]
+    resources :hotels, only: [:create]
     get "flights/outbound"
     get "flights/inbound"
     get "hotels/results"
