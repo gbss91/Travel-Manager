@@ -71,8 +71,16 @@ class BookingsController < ApplicationController
     @booking.destroy
 
     respond_to do |format|
-      format.html { redirect_to bookings_url }
-      format.json { head :no_content }
+
+      #Redirect admins to all bookings and staff to their own bookings
+      if current_user.admin?
+        format.html { redirect_to bookings_url }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to my_bookings_url }
+        format.json { head :no_content }
+      end
+
     end
   end
 

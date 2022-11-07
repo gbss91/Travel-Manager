@@ -6,9 +6,9 @@
 
   <%# Redirect to correct edit path %>
   <% if current_user.admin%>
-    <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary float-right"%>
+    <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary float-end"%>
   <%else %>
-    <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary float-right"%>
+    <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary float-end"%>
   <%end %>
 
 </div>

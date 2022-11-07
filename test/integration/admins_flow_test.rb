@@ -10,7 +10,6 @@ class AdminsFlowTest < ActionDispatch::IntegrationTest
   setup do
     @admin = users(:admin) #Admin user
     @staff = users(:staff)
-
   end
 
   test "show all users" do
@@ -55,7 +54,6 @@ class AdminsFlowTest < ActionDispatch::IntegrationTest
 
   end
 
-  #Delete user
   test "delete user" do
 
     #Admin sign in and goes user list
@@ -63,24 +61,50 @@ class AdminsFlowTest < ActionDispatch::IntegrationTest
     get users_path
     assert_response :success
 
-    #Click delete button and confirm
-    delete "/users/#{@staff.id}"
+    #Click delete button and confirm - User count changes
+    assert_difference("User.count", -1) do
+      delete user_url(@staff)
+    end
 
-    #User list change -1
-    assert_select "tr", 2
+    #Redirected to user list
+    assert_redirected_to users_url
+
   end
 
-  test "see all bookings list" do
+  test "see all bookings list and staff booking" do
+
+    #Admin sign in and goes all bookings
+    sign_in @admin
+    get bookings_path
+    assert_response :success
+
+    #Display user list
+    assert_select "tr", 4
+
+    #Opens staff booking /booking/2
+    get booking_url(bookings(:two))
+    assert_response :success
+    assert_select "h1", bookings(:two).destination
+
+  end
+
+  test "delete other user booking" do
 
     #Admin sign in and goes user list
     sign_in @admin
     get bookings_path
     assert_response :success
 
-    #Displaye user list
-    assert_select "tr", 4
+    #Delete someone booking
+    assert_difference("Booking.count", -1) do
+      delete booking_url(bookings(:two))
+    end
+
+    #Redirect user to all bookings
+    assert_response :redirect
+    follow_redirect!
+    assert_select "h1", "All Bookings"
 
   end
-
 
 end

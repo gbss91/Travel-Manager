@@ -9,6 +9,7 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
 
   setup do
     @staff = users(:staff) #Staff user
+    @booking = bookings(:two)
   end
 
   test "show user profile" do
@@ -55,7 +56,58 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     #Display user bookings
-    assert_select "h5", "New York"
+    assert_select "h1", "My Bookings"
   end
+
+  test "delete own booking" do
+
+    #User signs in and goes to their bookings
+    sign_in @staff
+    get my_bookings_url
+    assert_response :success
+
+    #User selects the booking they want to delete and booking displays
+    get booking_url(@booking)
+    assert_select "h1", 1, @booking.destination
+
+    #Delete booking
+    assert_difference("Booking.count", -1) do
+      delete booking_url(@booking)
+    end
+
+    #Redirect user to bookings
+    assert_response :redirect
+    follow_redirect!
+    assert_select "h1", "My Bookings"
+
+  end
+
+  test "see(show) booking details" do
+
+    #User signs in and goes to their bookings
+    sign_in @staff
+    get my_bookings_url
+    assert_response :success
+
+    #User opens one of the bookings to see more details
+    get booking_url(@booking)
+    assert_response :success
+
+    #Booking displays
+    assert_select "h1", @booking.destination
+
+  end
+
+  test "staff cannot access other user bookings" do
+
+    #User signs in and tries to open another user booking /bookings/1
+    sign_in @staff
+    get booking_url(bookings(:one)) #booking one belongs to admin
+
+    #User is redirected to own bookings
+    follow_redirect!
+    assert_select "h1", "My Bookings"
+  end
+
 
 end

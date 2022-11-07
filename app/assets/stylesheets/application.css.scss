@@ -101,7 +101,7 @@ tr a:hover {
   padding-right: 10px;
 }
 
-/* Bookings */
+/* Bookings and Results*/
 #new-booking-box {
   background-color: #f8f8f7;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
@@ -146,9 +146,6 @@ tr a:hover {
   padding: 10px;
 }
 
-/* Results */
-
-
 .small-text {
   margin-bottom: 0;
   font-size: 14px;
@@ -157,6 +154,11 @@ tr a:hover {
 
 .plane-img {
   max-height: 5vh;
+}
+
+tfoot {
+  border-top: 2px solid #2E2F30;
+  border-bottom: hidden;
 }
 
 
