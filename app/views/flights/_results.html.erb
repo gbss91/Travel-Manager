@@ -1,0 +1,45 @@
+
+<% if @flights.length > 0  %>
+  <% @flights.each do |flight| %>
+    <div  class="d-flex align-items-center">
+      <div class="col-12">
+        <div class="row d-flex align-items-center">
+          <div class="col-3">
+            <div class="col-12">
+              <p class="mb-0">Aer Lingus</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4">
+                <h4 class="mb-0">6:15</h4>
+                <p class="small-text">DUB</p>
+              </div>
+              <div class="col-4">
+                <%= image_tag "plane.png", class: "plane-img"%>
+                <p class="small-text">2h 25</p>
+              </div>
+              <div class="col-4">
+                <h4 class="mb-0">9:40</h4>
+                <p class="small-text">BER</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="col-12">
+              <h5 class="text-end">€70</h5>
+              <%= button_to "Select", booking_hotels_path, method: :post, params: {} ,class: "btn btn-primary float-end" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+<% else %>
+
+  <div class="d-flex align-items-center">
+    <p>No flights found</p>
+  </div>
+
+<% end %>

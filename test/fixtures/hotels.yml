@@ -2,30 +2,22 @@
 
 one:
   booking_id: 1
-  hotel_name: MyString
-  hotel_brand: MyString
-  address: MyText
-  city: MyString
+  hotel_name: "Marriott Miami"
+  address: "123 Avenue"
+  city: "Miami"
   check_in_date: 2022-10-19
-  check_in_time: 2022-10-19 01:16:34
-  check_out_time: 2022-10-19 01:16:34
-  board_type: MyString
+  room_type: "Standard"
   no_nights: 1
-  rate: 1.5
-  total_price: 1.5
-  currency: MyString
+  rate: 100
+  total_price: 100
 
 two:
-  booking_id: 1
+  booking_id: 2
   hotel_name: MyString
-  hotel_brand: MyString
   address: MyText
   city: MyString
   check_in_date: 2022-10-19
-  check_in_time: 2022-10-19 01:16:34
-  check_out_time: 2022-10-19 01:16:34
-  board_type: MyString
-  no_nights: 1
-  rate: 1.5
-  total_price: 1.5
-  currency: MyString
+  room_type: Standard
+  no_nights: 2
+  rate: 70
+  total_price: 140

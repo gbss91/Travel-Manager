@@ -21,7 +21,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_booking_url
+    get search_url
     assert_response :success
   end
 
@@ -30,7 +30,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
       post bookings_url, params: { booking: {user_id: @booking.user_id, booked_on_date: @booking.booked_on_date, origin: @booking.origin, destination: @booking.destination, departure_date: @booking.departure_date, return_date: @booking.return_date, adults: @booking.adults, status: @booking.status, booking_type: @booking.booking_type } }
     end
 
-    assert_redirected_to booking_url(Booking.last)
+    assert_redirected_to booking_flights_outbound_path(Booking.last)
   end
 
   test "should show booking" do

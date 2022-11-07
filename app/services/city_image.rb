@@ -20,7 +20,7 @@ class CityImage < ApplicationService
 
     #Only run if successful response
     if response.status.success?
-      #Return nil if no results or no photo reference
+      #Return nil if no outbound or no photo reference
       if data["candidates"].empty? || data["candidates"][0].empty?
         nil
       else

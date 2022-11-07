@@ -3,41 +3,44 @@
 one:
   user_id: 1
   booked_on_date: 2022-11-01
-  origin: London
-  destination: Dublin
-  departure_date: 2022-11-01
-  return_date: 2022-11-01
+  origin: New York
+  origin_city_code: NYC
+  destination: Miami
+  destination_city_code: MIA
+  departure_date: 2023-01-10
+  return_date: 2023-01-14
   adults: 1
   booking_class: "Economy"
   status: Prebook
   total_price: 29.99
-  currency: EUR
   booking_type: "Return"
 
 two:
   user_id: 2
   booked_on_date: 2022-11-01
-  origin: Dublin
-  destination: New York
-  departure_date: 2022-11-01
-  return_date: 2022-11-01
+  origin: New York
+  origin_city_code: NYC
+  destination: Los Angeles
+  destination_city_code: LAX
+  departure_date: 2022-12-21
+  return_date: 2022-12-23
   adults: 1
   booking_class: "First"
   status: Completed
   total_price: 1999.99
-  currency: EUR
   booking_type: "Return"
 
 three:
   user_id: 2
   booked_on_date: 2022-11-01
-  origin: Dublin
-  destination: London
+  origin: London
+  origin_city_code: LON
+  destination: Dublin
+  destination_city_code: DUB
   departure_date: 2022-12-01
   return_date: 2022-12-05
   adults: 1
   booking_class: "Economy"
   status: Prebooked
   total_price: 50.00
-  currency: EUR
   booking_type: "Return"

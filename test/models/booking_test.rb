@@ -7,4 +7,10 @@ class BookingTest < ActiveSupport::TestCase
     assert_not booking.save, "Saved without valid attributes"
   end
 
+  test "custom base validation error" do
+    booking = Booking.new
+    booking.save
+    assert booking.errors.include?(:base)
+  end
+
 end

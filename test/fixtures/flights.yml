@@ -11,7 +11,6 @@ one:
   duration: 2022-10-19 00:46:25
   adults: 1
   total_price: 1.5
-  currency: MyString
 
 two:
   booking_id: 2
@@ -24,4 +23,3 @@ two:
   duration: 2022-10-19 00:46:25
   adults: 1
   total_price: 1.5
-  currency: MyString

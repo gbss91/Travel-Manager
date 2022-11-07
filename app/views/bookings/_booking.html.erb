@@ -1,33 +1,69 @@
 <div id="<%= dom_id booking %>">
+  <% booking_decorator = decorate(booking) %>
+  <div class="row section-title">
+    <h1><%= booking.destination %></h1>
+  </div>
 
-  <p>
-    <strong>User:</strong>
-    <%= booking.user_id %>
-  </p>
+  <%#Outbound Flight section%>
+  <div class="row">
+    <p class="section-subtitle"><%= "#{booking.origin} to #{booking.destination}" %></p>
+    <div class="col-6">
+      <p class="label-text">First Name</p>
+      <p></p>
+      <p class="label-text">Last Name</p>
+      <p></p>
+      <p class="label-text">Last Sign In</p>
+      <p></p>
+    </div>
+    <div class="col-6">
+      <p class="label-text">Email</p>
+      <p></p>
+      <p class="label-text">User Id</p>
+      <p></p>
+      <p class="label-text">Role</p>
+      <p></p>
+    </div>
+  </div>
+  <hr>
+  <%#Inbound Flight section - only is exists%>
+  <% if booking.booking_type = "Round Trip" %>
+    <div class="row">
+      <p class="section-subtitle"><%= "#{booking.destination} to #{booking.origin}" %></p>
+      <div class="col-6">
+        <p class="label-text">Total Trips</p>
+        <p>data</p>
+        <p class="label-text">Most Visited</p>
+        <p>data</p>
+      </div>
+      <div class="col-6">
+        <p class="label-text">Next Trip</p>
+        <p>data</p>
+        <p class="label-text">Total Spent</p>
+        <p>data</p>
+      </div>
+    </div>
+    <hr>
+  <% end %>
 
-  <p>
-    <strong>Booked on:</strong>
-    <%= booking.booked_on_date %>
-  </p>
-
-  <p>
-    <strong>Trip date:</strong>
-    <%= booking.origin %>
-  </p>
-
-  <p>
-    <strong>Destination:</strong>
-    <%= booking.destination %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= booking.status %>
-  </p>
-
-  <p>
-    <strong>Total price:</strong>
-    <%= booking.total_price %>
-  </p>
+  <%#Hotel section%>
+  <div class="row">
+    <p class="section-subtitle"><%= "#{booking.origin} to #{booking.destination}" %></p>
+    <div class="col-6">
+      <p class="label-text">First Name</p>
+      <p></p>
+      <p class="label-text">Last Name</p>
+      <p></p>
+      <p class="label-text">Last Sign In</p>
+      <p></p>
+    </div>
+    <div class="col-6">
+      <p class="label-text">Email</p>
+      <p><%=user.email %></p>
+      <p class="label-text">User Id</p>
+      <p></p>
+      <p class="label-text">Role</p>
+      <p></p>
+    </div>
+  </div>
 
 </div>

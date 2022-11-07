@@ -14,27 +14,27 @@ class CitySearch < ApplicationService
 
   private
 
-  def get_city_code
-    #Get a new access token
-    token = AmadeusAccessToken.call
-    #Make call with token and params
-    url = URI("https://test.api.amadeus.com/v1/reference-data/locations")
-    response = HTTP.auth("Bearer #{token}").get(url, params: {subType: "CITY", keyword: @city, view: "LIGHT"})
-    data = JSON.parse(response.body)
+    def get_city_code
+      #Get a new access token
+      token = AmadeusAccessToken.call
+      #Make call with token and params
+      url = URI("https://test.api.amadeus.com/v1/reference-data/locations")
+      response = HTTP.auth("Bearer #{token}").get(url, params: {subType: "CITY", keyword: @city, view: "LIGHT"})
+      data = JSON.parse(response.body)
 
 
-    #Only run if successful response
-    if response.status.success?
-      #Return nil if no results
-      if data["meta"]["count"] == 0
-        nil
+      #Only run if successful response
+      if response.status.success?
+        #Return nil if no outbound
+        if data["meta"]["count"] == 0
+          nil
+        else
+          #return IATA Code
+          data["data"][0]["iataCode"]
+        end
       else
-        #return IATA Code
-        data["data"][0]["iataCode"]
+        nil
       end
-    else
-      nil
     end
-  end
 
 end
