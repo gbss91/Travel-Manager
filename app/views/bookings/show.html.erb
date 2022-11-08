@@ -1,6 +1,11 @@
+<div class="row section-title">
+  <h1><%= @booking.destination %></h1>
+</div>
+<% if alert %>
+  <%= render "layouts/alert" %>
+<% end %>
 <%= render @booking %>
 <br>
-
 <%# Only shows cancel button for bookings that are confirmed and not flown %>
 <% if @booking.status == "Confirmed" && !@booking.departure_date.past?%>
   <div>

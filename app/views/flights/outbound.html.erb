@@ -1,5 +1,7 @@
 <div class="row section-title">
   <h1>Outbound</h1>
 </div>
-
+<% if alert %>
+  <%= render "layouts/alert" %>
+<% end %>
 <%= render "results", booking: @flights %>

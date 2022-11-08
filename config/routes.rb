@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   resources :users
 
   #Nested routes for bookings
-  resources :bookings, except: :new do
+  resources :bookings, except: [:new, :edit] do
     resources :flights, only: [:create]
     resources :hotels, only: [:create]
+    get "confirm", on: :member
     get "flights/outbound"
     get "flights/inbound"
     get "hotels/results"

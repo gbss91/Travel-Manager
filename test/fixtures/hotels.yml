@@ -15,10 +15,10 @@ hotel_one:
 hotel_two:
   id: 2
   booking_id: 2
-  hotel_name: MyString
-  address: MyText
-  city: MyString
-  check_in_date: 2022-10-19
+  hotel_name: Holiday Inn LAX
+  address: 1 Airport Road
+  city: Los Angeles
+  check_in_date: 2022-12-21
   room_type: Standard
   no_nights: 2
   rate: 70

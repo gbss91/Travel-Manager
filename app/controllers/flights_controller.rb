@@ -1,6 +1,7 @@
 class FlightsController < ApplicationController
+  include ActionView::Helpers::UrlHelper
   before_action :get_booking
-
+  before_action :is_confirmed, only: [:outbound, :inbound]
 
   # GET /flights/outbound
   def outbound
@@ -17,12 +18,20 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params)
 
     respond_to do |format|
-      if @flight.save
-        format.html { redirect_to  booking_flights_path(@booking)}
-        format.json { render :show, status: :created, location: @flight }
+
+      #If round trip, redirect to inbound flight results
+      if current_page?(booking_flights_outbound_path(@booking)) || @booking.booking_type == "Round Trip"
+        if @flight.save
+          format.html { redirect_to booking_flights_inbound_path(@booking)}
+        else
+          format.html { redirect_to booking_flights_outbound_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
+        end
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @flight.errors, status: :unprocessable_entity }
+        if @flight.save
+          format.html { redirect_to booking_hotels_results_path(@booking)}
+        else
+          format.html { redirect_to booking_flights_inbound_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
+        end
       end
     end
   end
@@ -31,6 +40,11 @@ class FlightsController < ApplicationController
 
     def get_booking
       @booking = Booking.find(params[:booking_id])
+    end
+
+    #Restric certain views to only prebooked bookings
+    def is_confirmed
+      redirect_to my_bookings_path unless @booking.status == "Prebooked"
     end
 
     # Only allow a list of trusted parameters through.

@@ -1,7 +1,9 @@
 <div class="row section-title">
   <h1>Hotels</h1>
 </div>
-
+<% if alert %>
+  <%= render "layouts/alert" %>
+<% end %>
 <% if @hotels.length > 0  %>
   <% @hotels.each do |hotel| %>
     <div  class="d-flex align-items-center ">

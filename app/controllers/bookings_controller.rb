@@ -1,15 +1,15 @@
 class BookingsController < ApplicationController
   before_action :is_admin, only: :index
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :confirm, :update, :destroy]
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = Booking.order(params[:sort])
+    @bookings = Booking.where.not(status: "Prebooked").order(params[:sort])
   end
 
-  #GET /bookings for current user
+  #GET /bookings for current user - Only shows future confirmed bookings in my bookings
   def current_user_bookings
-    @bookings = current_user.bookings
+    @bookings = current_user.bookings.where.not(status: "Prebooked").and(current_user.bookings.where(departure_date: Date.today..))
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -31,8 +31,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  # GET /bookings/1/edit
-  def edit
+  # GET /bookings/1/confirm - Only shows for prebooked bookings
+  def confirm
+    redirect_to my_bookings_path unless @booking.status == "Prebooked"
   end
 
   # POST /bookings or /bookings.json
@@ -57,10 +58,10 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to booking_url(@booking) }
+        format.html { redirect_to booking_url(@booking), alert: "Booking confirmed!" }
         format.json { render :show, status: :ok, location: @booking }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity, alert: "There was an issue confirming the booking, please try again later." }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end

@@ -38,8 +38,8 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_booking_url(@booking)
+  test "should get confirm" do
+    get confirm_booking_url(@booking)
     assert_response :success
   end
 

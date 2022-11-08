@@ -28,7 +28,7 @@ two:
   return_date: 2022-12-23
   adults: 1
   booking_class: "First"
-  status: Completed
+  status: Prebooked
   total_price: 1999.99
   booking_type: "Return"
 
