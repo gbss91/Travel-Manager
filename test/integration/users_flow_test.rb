@@ -48,7 +48,7 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
 
   end
 
-  test "see my bookings" do
+  test "user can see their bookings" do
 
     #User signs in and goes to their bookings
     sign_in @staff
@@ -59,7 +59,7 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
     assert_select "h1", "My Bookings"
   end
 
-  test "delete own booking" do
+  test "user deletes own booking" do
 
     #User signs in and goes to their bookings
     sign_in @staff

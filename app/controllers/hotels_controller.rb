@@ -8,9 +8,11 @@ class HotelsController < ApplicationController
     @hotels = HotelsApi.call(@booking.destination_city_code, @booking.adults, @booking.departure_date, @booking.return_date)
   end
 
-
   # POST /hotels or /hotels.json
   def create
+    #Remove any previous selection, in case user goes back and select a different hotel
+    Hotel.delete_by(booking_id: @booking.id)
+
     @hotel = Hotel.new(hotel_params)
     @hotel.city = @booking.destination
     @hotel.check_in_date = @booking.departure_date
@@ -39,7 +41,7 @@ class HotelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def hotel_params
-      params.permit(:booking_id, :hotel_name, :address, :room_type, :rate)
+      params.require(:hotel).permit(:booking_id, :hotel_name, :address, :room_type, :rate)
     end
 
 end

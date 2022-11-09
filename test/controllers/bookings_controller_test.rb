@@ -20,8 +20,18 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get show" do
+    get booking_url(@booking)
+    assert_response :success
+  end
+
   test "should get new" do
     get search_url
+    assert_response :success
+  end
+
+  test "should get confirm" do
+    get confirm_booking_url(bookings(:two))
     assert_response :success
   end
 
@@ -33,14 +43,9 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to booking_flights_outbound_path(Booking.last)
   end
 
-  test "should show booking" do
-    get booking_url(@booking)
-    assert_response :success
-  end
-
-  test "should get confirm" do
-    get confirm_booking_url(@booking)
-    assert_response :success
+  test "should update booking" do
+    put booking_url(@booking), params: {booking: {status: "Confirmed"}}
+    assert_response :redirect
   end
 
 

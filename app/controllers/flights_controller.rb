@@ -15,18 +15,24 @@ class FlightsController < ApplicationController
 
   # POST /flights or /flights.json
   def create
+
     @flight = Flight.new(flight_params)
 
     respond_to do |format|
 
       #If round trip, redirect to inbound flight results
       if current_page?(booking_flights_outbound_path(@booking)) || @booking.booking_type == "Round Trip"
+        #Remove any previous selection, in case user goes back and select a different flight
+        Flight.delete_by(booking_id: @booking.id, origin_city: @booking.origin)
         if @flight.save
           format.html { redirect_to booking_flights_inbound_path(@booking)}
         else
           format.html { redirect_to booking_flights_outbound_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
         end
+
       else
+        #Remove any previous selection, in case user goes back and select a different flight
+        Flight.delete_by(booking_id: @booking.id, origin_city: @booking.destination)
         if @flight.save
           format.html { redirect_to booking_hotels_results_path(@booking)}
         else
@@ -49,6 +55,6 @@ class FlightsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flight_params
-      params.permit(:flight_no, :carrier, :origin_city, :destination_city, :departure_time, :arrival_time, :duration, :adults, :total_price, :booking_id)
+      params.require(:flight).permit(:flight_no, :carrier, :origin_city, :destination_city, :departure_time, :arrival_time, :duration, :adults, :total_price, :booking_id)
     end
 end

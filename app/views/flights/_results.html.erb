@@ -28,7 +28,7 @@
           <div class="col-3">
             <div class="col-12">
               <h5 class="text-end">€70</h5>
-              <%= button_to "Select", booking_flights_path, method: :post, params: {} ,class: "btn btn-primary float-end" %>
+              <%= button_to "Select", booking_flights_path, method: :post, params: {  flight: { booking_id: @booking.id, adults: flight.adults, arrival_time: flight.arrival_time, carrier: flight.carrier, departure_time: flight.departure_time, destination_city: flight.destination_city, duration: flight.duration, flight_no: flight.flight_no, origin_city: flight.origin_city, total_price: flight.total_price }} ,class: "btn btn-primary float-end" %>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ hotel_one:
 
 hotel_two:
   id: 2
-  booking_id: 2
+  booking_id: 3
   hotel_name: Holiday Inn LAX
   address: 1 Airport Road
   city: Los Angeles

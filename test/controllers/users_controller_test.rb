@@ -33,7 +33,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should ask unauthenticated user to sign in" do
+  test "should redirect unauthenticated user to sign in" do
     get users_path
     assert_redirected_to new_user_session_path
   end

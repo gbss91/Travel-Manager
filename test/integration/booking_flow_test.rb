@@ -5,20 +5,20 @@ class BookingFlowTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @staff = users(:staff) #Staff user
+    @hotel = hotels(:hotel_two)
+    @staff = users(:staff) #Staff
     @booking = bookings(:two)
     @flight = flights(:flight_two)
-    @hotel= hotels(:hotel_two)
     sign_in @staff #Assume user is signed in for all tests
   end
 
-  test "book a one way trip" do
+  test "user books a one way flight" do
 
     #User goes to New Booking
     get search_url
     assert_response :success
 
-    #When clicking search, booking is created and user is redirected to flight results
+    #When clicking search, booking is created and user is redirected to outbound flights
     get booking_flights_outbound_url(@booking)
     assert_response :success
     assert_select "h1", 1, "Outbound"
@@ -34,9 +34,13 @@ class BookingFlowTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select "h1", 1, "Hotels"
 
+  end
+
+  test "user selects hotel and confirm booking" do
+
     #User selects hotel and hotel is created
     assert_difference("Hotel.count") do
-      post booking_hotels_path(@booking),params: {hotel_name: @hotel.hotel_name, address: @hotel.address, room_type: @hotel.room_type, rate: @hotel.rate}
+      post booking_hotels_path(@booking),params: { hotel: { booking_id: @booking.id, hotel_name: @hotel.hotel_name, address: @hotel.address, room_type: @hotel.room_type, rate: @hotel.rate }}
     end
 
     #User is redirected to booking preview
@@ -46,14 +50,11 @@ class BookingFlowTest < ActionDispatch::IntegrationTest
     assert_select "h1", 1, @booking.destination
 
     #User clicks confirm and the booking is updated to Confirmed
-    put booking_path(@booking), params: {status: "Confirmed"}
+    put booking_path(@booking), params: {booking: {status: "Confirmed"}}
 
     #User is redirected to booking
     assert_response :redirect
     assert_redirected_to booking_url(@booking)
-
-
-
 
   end
 
