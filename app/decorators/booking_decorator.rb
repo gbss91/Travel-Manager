@@ -1,5 +1,5 @@
+# Decorator for Bookings. It decorates a model instance and allows to extract complex logic from the views
 class BookingDecorator < BaseDecorator
-
   def employee(user_id)
     @user = User.find(user_id)
     "#{@user.first_name} #{@user.last_name}"
@@ -9,16 +9,24 @@ class BookingDecorator < BaseDecorator
     date.strftime("%d %b %Y")
   end
 
+  def flight_title(city)
+    if origin_city_code == city
+      "#{origin} to #{destination}"
+    else
+      "#{destination} to #{origin}"
+    end
+
+  end
+
   def total
-    "EUR#{total_price}"
+    (flights[0].total_price + flights[1].total_price + hotel.total_price).round(2)
   end
 
   def status?
     if status == "Confirmed" && departure_date.past?
-      ("<td>Past Booking</td>").html_safe
+      "<td>Past Booking</td>".html_safe
     else
-      ("<td class='text-success'>#{status}</td>").html_safe #Returns confirm green for future reservations
+      "<td class='text-success'>#{status}</td>".html_safe # Returns confirm green for future reservations
     end
   end
-
 end

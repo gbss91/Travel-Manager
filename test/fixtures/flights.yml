@@ -3,7 +3,8 @@
 flight_one:
   id: 1
   booking_id: 1
-  flight_no: DL45
+  carrier_code: DL
+  flight_no: 45
   carrier: Delta
   origin_city: NYC
   destination_city: MIA
@@ -16,7 +17,8 @@ flight_one:
 flight_two:
   id: 2
   booking_id: 2
-  flight_no: UA123
+  carrier_code: UA
+  flight_no: 123
   carrier: United
   origin_city: NYC
   destination_city: LAX
@@ -29,7 +31,8 @@ flight_two:
 flight_three:
   id: 3
   booking_id: 2
-  flight_no: UA32
+  carrier_code: UA
+  flight_no: 32
   carrier: United
   origin_city: LAX
   destination_city: NYC

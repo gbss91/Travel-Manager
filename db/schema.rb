@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_07_232937) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_10_152627) do
   create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "booked_on_date", null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_232937) do
     t.integer "adults", null: false
     t.string "booking_class"
     t.string "status", null: false
-    t.decimal "total_price", precision: 10
+    t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "booking_type"
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_232937) do
   end
 
   create_table "flights", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "carrier_code", null: false
     t.string "flight_no", null: false
     t.string "carrier", null: false
     t.string "origin_city", null: false
@@ -42,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_232937) do
     t.datetime "arrival_time", null: false
     t.time "duration", null: false
     t.integer "adults", null: false
-    t.decimal "total_price", precision: 10, scale: 2, null: false
+    t.float "total_price", null: false
     t.bigint "booking_id", null: false
     t.index ["booking_id"], name: "index_flights_on_booking_id"
     t.index ["carrier"], name: "index_flights_on_carrier"
@@ -57,8 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_232937) do
     t.date "check_in_date", null: false
     t.string "room_type"
     t.integer "no_nights", null: false
-    t.decimal "rate", precision: 10, scale: 2, null: false
-    t.decimal "total_price", precision: 10, scale: 2, null: false
+    t.float "rate", null: false
+    t.float "total_price", null: false
     t.index ["booking_id"], name: "index_hotels_on_booking_id"
     t.index ["hotel_name"], name: "index_hotels_on_hotel_name"
   end

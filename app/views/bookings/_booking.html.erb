@@ -1,80 +1,40 @@
 <div id="<%= dom_id booking %>">
-  <% booking_decorator = decorate(booking) %>
+  <% b_decorator = decorate(booking)%>
 
-  <%#Outbound Flight section%>
-  <div class="row">
-    <p class="section-subtitle"><%= "#{booking.origin} to #{booking.destination}" %></p>
-    <div class="col-12 mb-3">
-      <div class="row">
-        <div class="col-3">
-          <p class="small-text fw-bold">Aer Lingus</p>
-          <p class="small-text">IE123</p>
-        </div>
-        <div class="col-3">
-          <p class="small-text fw-bold">Status</p>
-          <p class="small-text">Confirmed</p>
-        </div>
-        <div class="col-3">
-          <p class="small-text fw-bold">Date</p>
-          <p class="small-text">03 Dec 2022</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12">
-        <div class="row d-flex align-items-center">
-          <div class="col-3">
-            <p class="small-text">Dublin</p>
-            <h4 class="mb-0">6:15</h4>
-            <p class="small-text">DUB</p>
-          </div>
-          <div class="col-3">
-            <%= image_tag "plane.png", class: "plane-img"%>
-            <p class="small-text">2h 25</p>
-          </div>
-          <div class="col-3">
-            <p class="small-text">Berlin</p>
-            <h4 class="mb-0">9:40</h4>
-            <p class="small-text">BER</p>
-          </div>
-        </div>
-    </div>
-  </div>
-  <hr>
-  <%#Inbound Flight section - only is exists%>
-  <% if booking.booking_type == "Round Trip" %>
-    <div class="row">
-      <p class="section-subtitle"><%= "#{booking.destination} to #{booking.origin}" %></p>
+  <%#Render each flight in booking%>
+  <% booking.flights.each do |flight| %>
+    <% f_decorator = decorate(flight) %>
+    <div class="row mt-4 mb-4">
+      <p class="section-subtitle"><%= b_decorator.flight_title(flight.origin_city) %></p>
       <div class="col-12 mb-3">
         <div class="row">
           <div class="col-3">
-            <p class="small-text fw-bold">Aer Lingus</p>
-            <p class="small-text">IE123</p>
+            <p class="small-text fw-bold"><%= flight.carrier%></p>
+            <p class="small-text"><%= f_decorator.flight_code %></p>
           </div>
           <div class="col-3">
-            <p class="small-text fw-bold">Status</p>
-            <p class="small-text">Confirmed</p>
           </div>
           <div class="col-3">
-            <p class="small-text fw-bold">Date</p>
-            <p class="small-text">05 Dec 2022</p>
+            <p class="small-text fw-bold">Class</p>
+            <p class="small-text"><%= booking.booking_class.capitalize%></p>
           </div>
         </div>
       </div>
-      <div class="col-12 mt-3">
+      <div class="col-12">
         <div class="row d-flex align-items-center">
           <div class="col-3">
-            <p class="small-text">Berlin</p>
-            <h4 class="mb-0">18:50</h4>
-            <p class="small-text">BER</p>
+            <p class="small-text"><%= flight.origin_city %></p>
+            <h4 class="mb-0"><%= f_decorator.departure %></h4>
+            <p class="small-text"><%= f_decorator.formatted_date(flight.departure_time) %></p>
           </div>
           <div class="col-3">
             <%= image_tag "plane.png", class: "plane-img"%>
-            <p class="small-text">2h 10</p>
+            <p class="small-text"><%= f_decorator.duration(flight.duration)%></p>
           </div>
           <div class="col-3">
-            <p class="small-text">Dublin</p>
-            <h4 class="mb-0">20:00</h4>
-            <p class="small-text">DUB</p>
+            <p class="small-text"><%= flight.destination_city%></p>
+            <h4 class="mb-0"><%= f_decorator.arrival %></h4>
+            <p class="small-text"><%= f_decorator.formatted_date(flight.arrival_time)%></p>
           </div>
         </div>
       </div>
@@ -83,56 +43,60 @@
   <% end %>
 
   <%#Hotel section%>
-  <div class="row">
-    <p class="section-subtitle">Hotel</p>
-    <div class="col-6">
-      <p class="label-text">First Name</p>
-      <p></p>
-      <p class="label-text">Last Name</p>
-      <p></p>
-      <p class="label-text">Last Sign In</p>
-      <p></p>
+  <div class="row mt-4 mb-4">
+    <p class="section-subtitle"><%= booking.hotel.hotel_name %></p>
+    <div class="col-12 mb-3">
+      <div class="row">
+        <div class="col-6">
+          <p class="small-text fw-bold">Address</p>
+          <p class="small-text"><%= booking.hotel.address %></p>
+        </div>
+        <div class="col-6">
+          <p class="small-text fw-bold">Room Type</p>
+          <p class="small-text"><%= booking.hotel.room_type %></p>
+        </div>
+      </div>
     </div>
-    <div class="col-6">
-      <p class="label-text">Email</p>
-      <p></p>
-      <p class="label-text">User Id</p>
-      <p></p>
-      <p class="label-text">Role</p>
-      <p></p>
+    <div class="col-12 mb-3">
+      <div class="row">
+        <div class="col-6">
+          <p class="small-text fw-bold">Check-in Date</p>
+          <p class="small-text"><%= booking.hotel.check_in_date %></p>
+        </div>
+        <div class="col-6">
+          <p class="small-text fw-bold">Check-out Date</p>
+          <p class="small-text"><%= booking.departure_date %></p>
+        </div>
+      </div>
     </div>
   </div>
   <hr>
 
   <%#Total section%>
-  <div class="row">
+  <div class="row mt-4 ">
     <p class="section-subtitle">Total</p>
     <div class="col-12 mb-3">
       <p class="small-text fw-bold">Passenger Name</p>
-      <p class="small-text"><%= booking_decorator.employee(booking.user_id) %></p>
+      <p class="small-text"><%= b_decorator.employee(booking.user_id) %></p>
     </div>
     <div class="col-6">
       <table class="table table-sm small-text">
         <tbody>
-        <tr>
-          <td>Flight DUB-BER</td>
-          <td class="text-end">70.00 EUR</td>
-        </tr>
-        <% if booking.booking_type == "Round Trip" %>
+        <% booking.flights.each do |f| %>
           <tr>
-            <td>Flight BER-DUB</td>
-            <td class="text-end">40.00 EUR</td>
+            <td><%= "Flight #{f.origin_city}-#{f.destination_city}"%></td>
+            <td class="text-end"><%= f.total_price.round(2)%></td>
           </tr>
         <% end %>
         <tr>
-          <td>Hotel x 2 nights</td>
-          <td class="text-end">150.00 EUR</td>
+          <td><%= "Hotel x #{booking.hotel.no_nights} nights" %></td>
+          <td class="text-end"><%= "#{booking.hotel.total_price.round(2)} EUR" %></td>
         </tr>
         </tbody>
         <tfoot>
           <tr class="fw-bold">
             <td>Total:</td>
-            <td class="text-end">260.0 EUR</td>
+            <td class="text-end"><%= "#{b_decorator.total} EUR" %></td>
           </tr>
         </tfoot>
       </table>

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  before_action :is_admin, except: :show
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin?, except: :show
+  before_action :set_user, only: %i[show edit update destroy]
 
   # GET all /users - Allows to sort table by params
   def index
@@ -14,8 +13,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # GET /user/new
   def new
@@ -28,7 +26,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_path}
+        format.html { redirect_to users_path }
         format.json { render :index, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -53,11 +51,10 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_path}
+      format.html { redirect_to users_path }
       format.json { head :no_content }
     end
   end
-
 
   private
 
@@ -65,13 +62,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  #Check if user is admin before performing actions
-  def is_admin
+  # Check if user is admin before performing actions
+  def admin?
     redirect_to root_path unless current_user.admin?
   end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :admin, :password, :password_confirmation)
   end
-  
 end

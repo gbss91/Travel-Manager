@@ -1,16 +1,15 @@
-#Functional testing for Users controller
+# Functional testing for Users controller
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-
   include Devise::Test::IntegrationHelpers
 
-  setup do 
-    @admin = users(:admin) #Admin user 
+  setup do
+    @admin = users(:admin) # Admin user
   end
 
   test "should get index" do
-    sign_in @admin 
+    sign_in @admin
     get users_path
     assert_response :success
   end
@@ -39,10 +38,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy user" do
-    sign_in @admin #Sign in user
+    sign_in @admin # Sign in user
     assert_difference("User.count", -1) do
       delete user_url(@admin)
     end
   end
-
 end

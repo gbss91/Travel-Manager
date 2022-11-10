@@ -29,11 +29,11 @@
         </div>
 
         <div class="col-3">
-          <%= form.date_field :departure_date, class:"form-control"%>
+          <%= form.date_field :departure_date, min: Date.today, max: Date.today + 6.months, class:"form-control"%>
         </div>
 
         <div class="col-3">
-          <%= form.date_field :return_date, class:"form-control"%>
+          <%= form.date_field :return_date, min: Date.today, max: Date.today + 6.months, class:"form-control"%>
         </div>
       </div>
       <div class="d-flex flex-row">
@@ -42,7 +42,7 @@
         </div>
 
         <div>
-          <%= form.select :booking_class, ["Economy", "Premium Economy", "Business", "First"],{}, { class: "form-select", selected: "Economy" } %>
+          <%= form.select :booking_class, [["Economy", "ECONOMY"], ["Premium Economy", "PREMIUM_ECONOMY"], ["Business", "BUSINESS"], ["First", "FIRST"]],{}, { class: "form-select", selected: "Economy" } %>
         </div>
 
         <div>

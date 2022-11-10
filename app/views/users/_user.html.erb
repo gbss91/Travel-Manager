@@ -1,7 +1,7 @@
 <div id="<%= dom_id user %>">
-  <%user_decorator = decorate(@user) %>
+  <%u_decorator = decorate(@user) %>
   <div class="row section-title">
-    <h1><%=user_decorator.full_name %></h1>
+    <h1><%=u_decorator.full_name %></h1>
   </div>
   <div class="row">
     <p class="section-subtitle">Personal Details</p>
@@ -19,7 +19,7 @@
       <p class="label-text">User Id</p>
       <p><%=user.id%></p>
       <p class="label-text">Role</p>
-      <p><%=user_decorator.user_role%></p>
+      <p><%=u_decorator.user_role%></p>
     </div>
   </div>
   <hr>

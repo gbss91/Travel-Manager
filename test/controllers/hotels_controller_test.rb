@@ -1,12 +1,11 @@
 require "test_helper"
 
 class HotelsControllerTest < ActionDispatch::IntegrationTest
-
   include Devise::Test::IntegrationHelpers
 
   setup do
     @hotel = hotels(:hotel_two)
-    @staff = users(:staff) #Staff
+    @staff = users(:staff) # Staff
     @booking = bookings(:two)
   end
 
@@ -24,6 +23,4 @@ class HotelsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to confirm_booking_url(@booking)
   end
-
-
 end

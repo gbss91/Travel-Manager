@@ -1,4 +1,4 @@
-#Functional testing for home controller 
+# Functional testing for home controller
 
 require "test_helper"
 

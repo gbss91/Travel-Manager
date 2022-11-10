@@ -39,15 +39,15 @@
     </thead>
     <tbody>
     <% @bookings.each do |booking| %>
-      <%booking_decorator = decorate(booking) %>
+      <%b_decorator = decorate(booking) %>
       <tr>
         <td><%= booking.id %></td>
-        <td><%= booking_decorator.employee(booking.user_id) %></td>
+        <td><%= b_decorator.employee(booking.user_id) %></td>
         <td><%= booking.origin %></td>
         <td><%= booking.destination %></td>
-        <td><%= booking_decorator.formatted_date(booking.departure_date) %></td>
-        <td><%= booking_decorator.total%></td>
-        <%= booking_decorator.status?%>
+        <td><%= b_decorator.formatted_date(booking.departure_date) %></td>
+        <td><%= "€#{booking.total_price}"%></td>
+        <%= b_decorator.status?%>
         <td><%= link_to booking, class:"text-dark" do  %>
             <i class="fa fa-eye"></i>
           <%end %>

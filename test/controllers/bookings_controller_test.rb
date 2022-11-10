@@ -1,7 +1,6 @@
 require "test_helper"
 
 class BookingsControllerTest < ActionDispatch::IntegrationTest
-
   include Devise::Test::IntegrationHelpers
 
   setup do
@@ -37,17 +36,17 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create booking" do
     assert_difference("Booking.count") do
-      post bookings_url, params: { booking: {user_id: @booking.user_id, booked_on_date: @booking.booked_on_date, origin: @booking.origin, destination: @booking.destination, departure_date: @booking.departure_date, return_date: @booking.return_date, adults: @booking.adults, status: @booking.status, booking_type: @booking.booking_type } }
+      post bookings_url,
+           params: { booking: { user_id: @booking.user_id, booked_on_date: @booking.booked_on_date, origin: @booking.origin, destination: @booking.destination, departure_date: @booking.departure_date, return_date: @booking.return_date, adults: @booking.adults, status: @booking.status, booking_type: @booking.booking_type } }
     end
 
     assert_redirected_to booking_flights_outbound_path(Booking.last)
   end
 
   test "should update booking" do
-    put booking_url(@booking), params: {booking: {status: "Confirmed"}}
+    put booking_url(@booking), params: { booking: { status: "Confirmed" } }
     assert_response :redirect
   end
-
 
   test "should destroy booking" do
     assert_difference("Booking.count", -1) do

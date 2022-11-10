@@ -1,7 +1,6 @@
 require "test_helper"
 
 class BookingTest < ActiveSupport::TestCase
-
   test "should not save without valid attributes" do
     booking = Booking.new
     assert_not booking.save, "Saved without valid attributes"
@@ -12,5 +11,4 @@ class BookingTest < ActiveSupport::TestCase
     booking.save
     assert booking.errors.include?(:base)
   end
-
 end

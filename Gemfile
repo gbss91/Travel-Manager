@@ -39,6 +39,9 @@ gem "font-awesome-rails"
 # External GEM for HTTP [https://github.com/httprb/http]
 gem "http"
 
+# External GEM to analyze and format code [https://github.com/httprb/http]
+gem 'rubocop', '~> 1.38', require: false
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -6,7 +6,8 @@
 <% end %>
 <%= render @booking %>
 <br>
+<% b_decorator = decorate(@booking)%>
 <div>
-  <%= button_to "Confirm", @booking, method: :put,  class: "btn btn-primary float-end" %>
+  <%= button_to "Confirm", @booking, method: :put,  params: { booking: { status: "Confirmed", total: b_decorator.total }}, class: "btn btn-primary float-end" %>
   <%= button_to "Cancel", @booking, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' }},  class: "btn btn-link link-simple float-end" %>
 </div>
