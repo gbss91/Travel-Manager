@@ -42,6 +42,9 @@ gem "http"
 # External GEM to analyze and format code [https://github.com/httprb/http]
 gem 'rubocop', '~> 1.38', require: false
 
+# Custom GEM to search
+gem "mysearch", path: "/Users/gabriel/Documents/NCI/CloudDev/Final\ Project/mysearch"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

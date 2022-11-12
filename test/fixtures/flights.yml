@@ -42,3 +42,17 @@ flight_three:
   adults: 1
   total_price: 98.00
 
+flight_four:
+  id: 4
+  booking_id: 3
+  carrier_code: UA
+  flight_no: 32
+  carrier: United
+  origin_city: LAX
+  destination_city: SEA
+  departure_time: 2022-12-23 00:46:25
+  arrival_time: 2022-12-24 05:15:25
+  duration: 2022-10-19 05:15:25
+  adults: 1
+  total_price: 98.00
+

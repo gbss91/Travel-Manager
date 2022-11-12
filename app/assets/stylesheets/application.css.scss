@@ -164,13 +164,28 @@ tr a:hover {
 }
 
 .plane-img {
-  max-height: 5vh;
+  max-height: 4vh;
 }
 
 tfoot {
   border-top: 2px solid #2E2F30;
   border-bottom: hidden;
 }
+
+/* Search */
+
+.search-bar {
+  height: 26px;
+  font-size: 14px;
+}
+
+.search-btn {
+  height: 26px;
+  font-size: 14px;
+  padding: 0 15px;
+
+}
+
 
 
 

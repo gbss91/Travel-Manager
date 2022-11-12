@@ -5,10 +5,6 @@ class BookingDecorator < BaseDecorator
     "#{@user.first_name} #{@user.last_name}"
   end
 
-  def formatted_date(date)
-    date.strftime("%d %b %Y")
-  end
-
   def flight_title(city)
     if origin_city_code == city
       "#{origin} to #{destination}"
@@ -19,7 +15,11 @@ class BookingDecorator < BaseDecorator
   end
 
   def total
-    (flights[0].total_price + flights[1].total_price + hotel.total_price).round(2)
+    if status == "Round Trip"
+      (flights[0].total_price + flights[1].total_price + hotel.total_price).round(2)
+    else
+      (flights[0].total_price + hotel.total_price).round(2)
+    end
   end
 
   def status?

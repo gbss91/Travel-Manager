@@ -16,7 +16,7 @@
           </div>
           <div class="col-3">
             <p class="small-text fw-bold">Class</p>
-            <p class="small-text"><%= booking.booking_class.capitalize%></p>
+            <p class="small-text"><%= booking.booking_class.titleize%></p>
           </div>
         </div>
       </div>
@@ -61,11 +61,11 @@
       <div class="row">
         <div class="col-6">
           <p class="small-text fw-bold">Check-in Date</p>
-          <p class="small-text"><%= booking.hotel.check_in_date %></p>
+          <p class="small-text"><%= b_decorator.formatted_date(booking.hotel.check_in_date) %></p>
         </div>
         <div class="col-6">
           <p class="small-text fw-bold">Check-out Date</p>
-          <p class="small-text"><%= booking.departure_date %></p>
+          <p class="small-text"><%= b_decorator.formatted_date(booking.departure_date) %></p>
         </div>
       </div>
     </div>

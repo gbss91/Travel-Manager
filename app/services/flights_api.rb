@@ -75,7 +75,6 @@ class FlightsApi < ApplicationService
     # Make call with token and params
     url = URI("https://test.api.amadeus.com/v1/reference-data/airlines")
     response = HTTP.auth("Bearer #{@token}").get(url, params: { airlineCodes: carrier_code })
-    puts JSON.parse(response.body)
 
     # Return carrier code if error, else airline name
     return carrier_code unless response.status.success?

@@ -1,10 +1,15 @@
+require 'mysearch'
 class BookingsController < ApplicationController
   before_action :admin?, only: :index
   before_action :set_booking, only: %i[show confirm update destroy]
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = Booking.where.not(status: "Prebooked").order(params[:sort])
+    @bookings = if params[:search].present?
+                  MySearch.booking(%w[id status destination], params[:search])
+                else
+                  Booking.where.not(status: "Prebooked").order(params[:sort])
+                end
   end
 
   # GET /bookings for current user - Only shows future confirmed bookings in my bookings
@@ -72,10 +77,8 @@ class BookingsController < ApplicationController
       # Redirect admins to all bookings and staff to their own bookings
       if current_user.admin?
         format.html { redirect_to bookings_url }
-        format.json { head :no_content }
       else
         format.html { redirect_to my_bookings_url }
-        format.json { head :no_content }
       end
     end
   end

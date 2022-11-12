@@ -12,9 +12,9 @@ one:
   return_date: 2023-01-14
   adults: 1
   booking_class: Economy
-  status: Prebook
-  total_price: 29.99
-  booking_type: Return
+  status: Confirmed
+  total_price: 229.99
+  booking_type: One Way
 
 two:
   id: 2
@@ -24,26 +24,26 @@ two:
   origin_city_code: NYC
   destination: Los Angeles
   destination_city_code: LAX
-  departure_date: 2022-12-21
-  return_date: 2022-12-23
+  departure_date: 2023-01-10
+  return_date: 2023-01-14
   adults: 1
   booking_class: First
   status: Prebooked
   total_price: 1999.99
-  booking_type: Return
+  booking_type: Round Trip
 
 three:
   id: 3
   user_id: 2
   booked_on_date: 2022-11-01
-  origin: London
-  origin_city_code: LON
-  destination: Dublin
-  destination_city_code: DUB
-  departure_date: 2022-12-01
-  return_date: 2022-12-05
+  origin: Los Angeles
+  origin_city_code: LAX
+  destination: Seattle
+  destination_city_code: SEA
+  departure_date: 2023-01-14
+  return_date: 2023-01-16
   adults: 1
   booking_class: Economy
   status: Prebooked
   total_price: 50.00
-  booking_type: Return
+  booking_type: One Way

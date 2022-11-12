@@ -11,7 +11,7 @@
       <p class="label-text">Last Name</p>
       <p><%=user.last_name%></p>
       <p class="label-text">Last Sign In</p>
-      <p><%=user.last_sign_in_at %></p>
+      <p><%= u_decorator.formatted_date(user.last_sign_in_at) %></p>
     </div>
     <div class="col-6">
       <p class="label-text">Email</p>
@@ -27,15 +27,15 @@
     <p class="section-subtitle">Travel Details</p>
     <div class="col-6">
       <p class="label-text">Total Trips</p>
-      <p>data</p>
-      <p class="label-text">Most Visited</p>
-      <p>data</p>
+      <p><%= u_decorator.total_trips %></p>
+      <p class="label-text">Total Spent</p>
+      <p><%= u_decorator.total_spent %></p>
     </div>
     <div class="col-6">
       <p class="label-text">Next Trip</p>
-      <p>data</p>
-      <p class="label-text">Total Spent</p>
-      <p>data</p>
+      <p><%= u_decorator.next_trip %></p>
+      <p class="label-text">Most Visited</p>
+      <p><%= u_decorator.most_visited %></p>
     </div>
   </div>
 

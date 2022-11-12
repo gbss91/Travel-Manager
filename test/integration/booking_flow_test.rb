@@ -6,7 +6,7 @@ class BookingFlowTest < ActionDispatch::IntegrationTest
   setup do
     @hotel = hotels(:hotel_two)
     @staff = users(:staff) # Staff
-    @booking = bookings(:two)
+    @booking = bookings(:three)
     @flight = flights(:flight_two)
     sign_in @staff # Assume user is signed in for all tests
   end
@@ -35,9 +35,9 @@ class BookingFlowTest < ActionDispatch::IntegrationTest
 
   test "user selects hotel and confirm booking" do
     # User selects hotel and hotel is created
-    assert_difference("Hotel.count") do
-      post booking_hotels_path(@booking), params: { hotel: { booking_id: @booking.id, hotel_name: @hotel.hotel_name, address: @hotel.address, room_type: @hotel.room_type, rate: @hotel.rate } }
-    end
+    post booking_hotels_path(@booking), params: { hotel: { booking_id: @booking.id, hotel_name: @hotel.hotel_name, address: @hotel.address, room_type: @hotel.room_type, rate: @hotel.rate } }
+
+    assert_response :redirect
 
     # User is redirected to booking preview
     assert_response :redirect

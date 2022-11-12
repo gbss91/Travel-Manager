@@ -6,6 +6,10 @@
     <thead >
     <tr>
       <th scope="col">
+        <%= link_to "User ID", :sort => "id", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
+      <th scope="col">
         <%= link_to "First Name", :sort => "first_name", class:"text-decoration-none"%>
         <i class="fa fa-sort" aria-hidden="true"></i>
       </th>
@@ -13,8 +17,10 @@
         <%= link_to "Last Name", :sort => "last_name", class:"text-dark"%>
         <i class="fa fa-sort" aria-hidden="true"></i>
       </th>
-      <th scope="col">Email</th>
-      <th scope="col">User ID</th>
+      <th scope="col">
+        <%= link_to "Email", :sort => "email", class:"text-dark"%>
+        <i class="fa fa-sort" aria-hidden="true"></i>
+      </th>
       <th scope="col">
         <%= link_to "Role", :sort => "admin", class:"text-dark"%>
         <i class="fa fa-sort" aria-hidden="true"></i>
@@ -28,10 +34,10 @@
     <% @users.each do |user| %>
       <%user_decorator = decorate(user) %>
       <tr>
+        <td><%=user.id %></td>
         <td><%= user.first_name%></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
-        <td><%=user.id %></td>
         <td><%=user_decorator.user_role%></td>
         <td><%= link_to user, class:"text-dark" do  %>
             <i class="fa fa-eye"></i>

@@ -66,11 +66,11 @@ class AdminsFlowTest < ActionDispatch::IntegrationTest
   test "see all bookings list and staff booking" do
     # Admin sign in and goes all bookings
     sign_in @admin
-    get bookings_path
+    get bookings_url
     assert_response :success
 
-    # Display user list
-    assert_select "tr", 4
+    # Display confirmed bookings
+    assert_select "tr", 2 #
 
     # Opens staff booking /booking/2
     get booking_url(bookings(:two))

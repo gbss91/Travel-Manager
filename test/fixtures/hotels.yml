@@ -6,7 +6,7 @@ hotel_one:
   hotel_name: Marriott Miami
   address: 123 Avenue
   city: Miami
-  check_in_date: 2022-10-19
+  check_in_date: 2023-01-10
   room_type: Standard
   no_nights: 1
   rate: 100
@@ -14,7 +14,7 @@ hotel_one:
 
 hotel_two:
   id: 2
-  booking_id: 3
+  booking_id: 2
   hotel_name: Holiday Inn LAX
   address: 1 Airport Road
   city: Los Angeles
@@ -23,3 +23,5 @@ hotel_two:
   no_nights: 2
   rate: 70
   total_price: 140
+
+

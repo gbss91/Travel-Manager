@@ -16,7 +16,7 @@ class DashboardFlowTest < ActionDispatch::IntegrationTest
     assert_select "title", "Travel Manager Dashboard"
 
     # Renders admin side menu
-    assert_select "h5", "Rebeca Gonzalez", 1 # Name in fixture
+    assert_select "h5", "John Smith", 1 # Name in fixture
   end
 
   test "Show staff menu when staff signs in" do
@@ -26,6 +26,6 @@ class DashboardFlowTest < ActionDispatch::IntegrationTest
     assert_select "title", "Travel Manager Dashboard"
 
     # Renders staff menu
-    assert_select "h5", "John Smith", 1
+    assert_select "h5", "Rebecca Gonzalez", 1
   end
 end

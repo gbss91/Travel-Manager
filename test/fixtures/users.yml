@@ -2,8 +2,8 @@
 
 admin:
   id: 1
-  first_name: Rebeca
-  last_name: Gonzalez
+  first_name: John
+  last_name: Smith
   admin: True
   email: admin@test.com
   encrypted_password: 1234567
@@ -13,8 +13,8 @@ admin:
 
 staff:
   id: 2
-  first_name: John
-  last_name: Smith
+  first_name: Rebecca
+  last_name: Gonzalez
   admin: False
   email: staff@test.com
   encrypted_password: 1234567

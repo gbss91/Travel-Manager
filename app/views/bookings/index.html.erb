@@ -3,17 +3,25 @@
   <div class="row section-title">
     <h1>All Bookings</h1>
   </div>
+  <div class="d-flex float-end mb-2">
+    <%= form_tag bookings_path, method: :get do |f| %>
+      <div class="d-inline-block">
+        <%= text_field_tag :search, nil, class:"form-control search_field search-bar" %>
+      </div>
+      <div class="d-inline-block">
+        <%= submit_tag "Search", class: "btn btn-primary search-btn"%>
+      </div>
+
+    <% end %>
+  </div>
   <table class="table table-hover" id="bookings-table">
     <thead >
     <tr>
       <th scope="col">
-        <%= link_to "Booking ID", :sort => "id", class:"text-decoration-none"%>
+        <%= link_to "ID", :sort => "id", class:"text-decoration-none"%>
         <i class="fa fa-sort" aria-hidden="true"></i>
       </th>
-      <th scope="col">
-        <%= link_to "Employee Name", :sort => "first_name", class:"text-decoration-none"%>
-        <i class="fa fa-sort" aria-hidden="true"></i>
-      </th>
+      <th scope="col">Employee</th>
       <th scope="col">
         <%= link_to "Origin", :sort => "origin", class:"text-dark"%>
         <i class="fa fa-sort" aria-hidden="true"></i>

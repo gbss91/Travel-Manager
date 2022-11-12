@@ -4,9 +4,9 @@ class FlightsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @flight = flights(:flight_one)
-    @user = users(:admin) # Admin user
-    @booking = bookings(:one)
+    @flight = flights(:flight_two)
+    @user = users(:staff) # Admin user
+    @booking = bookings(:two)
   end
 
   test "should get outbound" do

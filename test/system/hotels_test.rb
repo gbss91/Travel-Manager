@@ -5,13 +5,8 @@ class HotelsTest < ApplicationSystemTestCase
     @hotel = hotels(:one)
   end
 
-  test "visiting the index" do
-    visit hotels_url
-    assert_selector "h1", text: "Hotels"
-  end
-
   test "should create hotel" do
-    visit hotels_url
+    visit booking_hotels_url
     click_on "New hotel"
 
     fill_in "Address", with: @hotel.address
