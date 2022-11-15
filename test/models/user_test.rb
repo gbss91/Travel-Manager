@@ -1,7 +1,6 @@
 # User Model unit testing
 
 require "test_helper"
-
 class UserTest < ActiveSupport::TestCase
   test "should not save user without first and last name" do
     user = User.new

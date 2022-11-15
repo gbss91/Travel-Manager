@@ -5,11 +5,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = if params[:search].present?
-                  MySearch.booking(%w[id status destination], params[:search])
-                else
-                  Booking.where.not(status: "Prebooked").order(params[:sort])
-                end
+    @bookings = params[:search].present? ? MySearch.booking(%w[id status origin destination], params[:search]) : Booking.where.not(status: "Prebooked").order(params[:sort])
   end
 
   # GET /bookings for current user - Only shows future confirmed bookings in my bookings

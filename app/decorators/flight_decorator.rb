@@ -20,8 +20,4 @@ class FlightDecorator < BaseDecorator
   def duration(duration)
     duration.strftime("%Hh%M")
   end
-
-  def formatted_date(date)
-    date.strftime("%d %b %Y")
-  end
 end

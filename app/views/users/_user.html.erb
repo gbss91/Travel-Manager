@@ -11,7 +11,7 @@
       <p class="label-text">Last Name</p>
       <p><%=user.last_name%></p>
       <p class="label-text">Last Sign In</p>
-      <p><%= u_decorator.formatted_date(user.last_sign_in_at) %></p>
+      <p><%= u_decorator.last_signed || "Never" %></p>
     </div>
     <div class="col-6">
       <p class="label-text">Email</p>

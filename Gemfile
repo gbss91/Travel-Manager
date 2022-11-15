@@ -42,6 +42,9 @@ gem "http"
 # External GEM to analyze and format code [https://github.com/httprb/http]
 gem 'rubocop', '~> 1.38', require: false
 
+# Allows to use observer [https://github.com/rails/rails-observers]
+gem 'rails-observers'
+
 # Custom GEM to search
 gem "mysearch", path: "/Users/gabriel/Documents/NCI/CloudDev/Final\ Project/mysearch"
 

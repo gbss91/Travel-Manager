@@ -28,7 +28,7 @@ class FlightsApi < ApplicationService
     end
 
     # Return flights
-    flights
+    flights.sort_by(&:departure_time)
 
   end
 
