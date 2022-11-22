@@ -5,8 +5,8 @@ class BookingDecorator < BaseDecorator
     "#{@user.first_name} #{@user.last_name}"
   end
 
-  def flight_title(city)
-    if origin_city_code == city
+  def flight_title(direction)
+    if direction == "Outbound"
       "#{origin} to #{destination}"
     else
       "#{destination} to #{origin}"

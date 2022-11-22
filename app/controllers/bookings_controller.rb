@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to  booking_flights_outbound_path(@booking) }
+        format.html { redirect_to  booking_outbound_results_path(@booking) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @booking.errors, status: :unprocessable_entity }

@@ -20,4 +20,8 @@ class FlightDecorator < BaseDecorator
   def duration(duration)
     duration.strftime("%Hh%M")
   end
+
+  def direction(date)
+    departure_time.strftime("%F") == date.to_s ? "Outbound" : "Inbound"
+  end
 end

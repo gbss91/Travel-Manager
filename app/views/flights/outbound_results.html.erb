@@ -1,0 +1,10 @@
+<div class="row section-title">
+  <h1>Outbound</h1>
+</div>
+<div>
+  <%= turbo_frame_tag "outbound_frame", src: booking_flights_outbound_path do %>
+    <div class="col-12 d-flex justify-content-center align-items-center loading">
+      <%= image_tag "loader.gif", id: "loader"  %>
+    </div>
+  <% end %>
+</div>

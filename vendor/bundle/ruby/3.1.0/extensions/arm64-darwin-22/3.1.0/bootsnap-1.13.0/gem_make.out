@@ -1,0 +1,15 @@
+current directory: /Users/gabriel/Documents/NCI/CloudDev/Final Project/TravelManager/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+/opt/homebrew/opt/ruby/bin/ruby -I /opt/homebrew/Cellar/ruby/3.1.2_1/lib/ruby/3.1.0 -r ./siteconf20221122-29567-xw3dua.rb extconf.rb
+creating Makefile
+
+current directory: /Users/gabriel/Documents/NCI/CloudDev/Final Project/TravelManager/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/gabriel/Documents/NCI/CloudDev/Final Project/TravelManager/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/gabriel/Documents/NCI/CloudDev/Final Project/TravelManager/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20221122-29567-l8rmv6/bootsnap

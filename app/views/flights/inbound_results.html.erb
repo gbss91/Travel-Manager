@@ -1,0 +1,10 @@
+<div class="row section-title">
+  <h1>Inbound</h1>
+</div>
+<div>
+  <%= turbo_frame_tag "inbound_frame", src: booking_flights_inbound_path do %>
+    <div class="col-12 d-flex justify-content-center align-items-center loading">
+      <%= image_tag "loader.gif", id: "loader"  %>
+    </div>
+  <% end %>
+</div>

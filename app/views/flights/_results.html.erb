@@ -1,4 +1,3 @@
-
 <% if @flights.length > 0  %>
   <% @flights.each do |flight| %>
     <% f_decorator = decorate(flight) %>
@@ -29,7 +28,7 @@
           <div class="col-3">
             <div class="col-12">
               <h5 class="text-end">€<%= flight.total_price.round()%></h5>
-              <%= button_to "Select", booking_flights_path, method: :post, params:{ flight: {carrier_code: flight.carrier_code, flight_no: flight.flight_no , carrier: flight.carrier.titleize, origin_city: flight.origin_city, destination_city: flight.destination_city, departure_time: flight.departure_time, arrival_time: flight.arrival_time, duration: flight.duration, adults: flight.adults, total_price: flight.total_price, booking_id: @booking.id}}, class: "btn btn-primary float-end" %>
+              <%= button_to "Select", booking_flights_path, method: :post, params:{ flight: {carrier_code: flight.carrier_code, flight_no: flight.flight_no , carrier: flight.carrier.titleize, origin_city: flight.origin_city, destination_city: flight.destination_city, departure_time: flight.departure_time, arrival_time: flight.arrival_time, duration: flight.duration, adults: flight.adults, total_price: flight.total_price, booking_id: @booking.id, direction: f_decorator.direction(@booking.departure_date)}}, class: "btn btn-primary float-end" %>
             </div>
           </div>
         </div>

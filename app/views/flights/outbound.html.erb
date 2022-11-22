@@ -1,7 +1,6 @@
-<div class="row section-title">
-  <h1>Outbound</h1>
-</div>
-<% if alert %>
-  <%= render "layouts/alert" %>
+<%= turbo_frame_tag "outbound_frame" do %>
+  <% if alert %>
+    <%= render "layouts/alert" %>
+  <% end %>
+  <%= render "results", flight: @flights %>
 <% end %>
-<%= render "results", flight: @flights %>

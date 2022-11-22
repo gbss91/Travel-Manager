@@ -12,8 +12,8 @@ gem "rails", "~> 7.0.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use mysql as the database for Active Record
-gem "mysql2", "~> 0.5"
+# Use PostgreSQL as the database for Active Record
+gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -44,6 +44,9 @@ gem 'rubocop', '~> 1.38', require: false
 
 # Allows to use observer [https://github.com/rails/rails-observers]
 gem 'rails-observers'
+
+# External GEM for charts [https://chartkick.com]
+gem "chartkick"
 
 # Custom GEM to search
 gem "mysearch", path: "/Users/gabriel/Documents/NCI/CloudDev/Final\ Project/mysearch"

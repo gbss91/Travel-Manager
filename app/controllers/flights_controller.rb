@@ -1,7 +1,7 @@
 class FlightsController < ApplicationController
   include ActionView::Helpers::UrlHelper
   before_action :set_booking
-  before_action :booking_confirmed?, only: %i[outbound inbound]
+  before_action :booking_confirmed?, only: %i[outbound inbound outbound_results inbound_results]
   before_action :round_trip?, only: :inbound
 
   # GET /flights/outbound
@@ -14,12 +14,17 @@ class FlightsController < ApplicationController
     @flights = FlightsApi.call(@booking.destination_city_code, @booking.origin_city_code, @booking.adults, @booking.return_date, @booking.booking_class)
   end
 
+  # Get skeleton loading pages
+  def outbound_results; end
+  def inbound_results; end
+
+
   # POST /flights or /flights.json
   def create
     @flight = Flight.new(flight_params)
     respond_to do |format|
       if @booking.booking_type == "Round Trip"
-        if @flight.origin_city == @booking.origin_city_code # Outbound flight
+        if @flight.direction == "Outbound" # Outbound flight
           save_outbound(format)
         else
           save_inbound(format)
@@ -42,50 +47,50 @@ class FlightsController < ApplicationController
     redirect_to my_bookings_path unless @booking.status == "Prebooked"
   end
 
-  # Restrict outbound view to only round trips
+  # Restrict inbound view to only round trips
   def round_trip?
-    redirect_to booking_flights_outbound_path unless @booking.booking_type == "Round Trip"
+    redirect_to booking_outbound_results_path unless @booking.booking_type == "Round Trip"
   end
 
   def save_outbound(format)
     # Remove any previous selection
-    Flight.delete_by(booking_id: @booking.id, origin_city: @flight.origin_city)
+    Flight.delete_by(booking_id: @booking.id, direction: @flight.direction)
 
     # Save flight and redirect accordingly
     if @flight.save
-      format.html { redirect_to booking_flights_inbound_path(@booking) }
+      format.html { redirect_to booking_inbound_results_path(@booking) }
     else
-      format.html { redirect_to booking_flights_outbound_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
+      format.html { redirect_to booking_outbound_results_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
     end
   end
 
   def save_inbound(format)
     # Remove any previous selection
-    Flight.delete_by(booking_id: @booking.id, origin_city: @flight.origin_city)
+    Flight.delete_by(booking_id: @booking.id, direction: @flight.direction)
 
     # Save flight and redirect accordingly
     if @flight.save
       format.html { redirect_to booking_hotels_results_path(@booking) }
     else
-      format.html { redirect_to booking_flights_inbound_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
+      format.html { redirect_to booking_inbound_results_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
     end
   end
 
   def save_inbound_oneway(format)
     # Remove any previous selection
-    Flight.delete_by(booking_id: @booking.id, origin_city: @flight.origin_city)
+    Flight.delete_by(booking_id: @booking.id, direction: @flight.direction)
 
     # Save flight and redirect accordingly
     if @flight.save
       format.html { redirect_to booking_hotels_results_path(@booking) }
     else
-      format.html { redirect_to booking_flights_outbound_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
+      format.html { redirect_to booking_outbound_results_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
     end
   end
 
   # Only allow a list of trusted parameters through.
   def flight_params
-    params.require(:flight).permit(:carrier_code, :flight_no, :carrier, :origin_city, :destination_city, :departure_time, :arrival_time, :duration, :adults, :total_price, :booking_id)
+    params.require(:flight).permit(:carrier_code, :flight_no, :carrier, :origin_city, :destination_city, :departure_time, :arrival_time, :duration, :adults, :total_price, :booking_id, :direction)
   end
 
 end

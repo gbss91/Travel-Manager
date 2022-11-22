@@ -10,8 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_10_152627) do
-  create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2022_11_22_200349) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "booked_on_date", null: false
     t.string "origin", null: false
@@ -33,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_152627) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "flights", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "flights", force: :cascade do |t|
     t.string "carrier_code", null: false
     t.string "flight_no", null: false
     t.string "carrier", null: false
@@ -45,12 +48,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_152627) do
     t.integer "adults", null: false
     t.float "total_price", null: false
     t.bigint "booking_id", null: false
+    t.string "direction", null: false
     t.index ["booking_id"], name: "index_flights_on_booking_id"
     t.index ["carrier"], name: "index_flights_on_carrier"
     t.index ["flight_no"], name: "index_flights_on_flight_no"
   end
 
-  create_table "hotels", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "hotels", force: :cascade do |t|
     t.bigint "booking_id", null: false
     t.string "hotel_name", null: false
     t.text "address"
@@ -64,7 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_152627) do
     t.index ["hotel_name"], name: "index_hotels_on_hotel_name"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "email", default: "", null: false
@@ -85,5 +89,3 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_152627) do
   end
 
 end
-
-

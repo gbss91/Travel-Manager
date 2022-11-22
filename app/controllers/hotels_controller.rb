@@ -1,11 +1,14 @@
 class HotelsController < ApplicationController
   before_action :set_booking
-  before_action :booking_confirmed?, only: :results
+  before_action :booking_confirmed?, only: :hotels
 
-  # GET /hotels/outbound
-  def results
+  # GET /hotels/results
+  def hotels
     @hotels = HotelsApi.call(@booking.destination_city_code, @booking.adults, @booking.departure_date, @booking.return_date)
   end
+
+  # Get skeleton loading page
+  def results; end
 
   # POST /hotels or /hotels.json
   def create

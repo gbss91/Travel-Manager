@@ -5,7 +5,7 @@
   <% booking.flights.each do |flight| %>
     <% f_decorator = decorate(flight) %>
     <div class="row mt-4 mb-4">
-      <p class="section-subtitle"><%= b_decorator.flight_title(flight.origin_city) %></p>
+      <p class="section-subtitle"><%= b_decorator.flight_title(flight.direction) %></p>
       <div class="col-12 mb-3">
         <div class="row">
           <div class="col-3">
