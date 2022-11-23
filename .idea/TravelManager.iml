@@ -358,6 +358,27 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="chartkick (vbundled(4.2.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/chartkick-4.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/chartkick-4.2.1/vendor" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/chartkick-4.2.1/licenses" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/chartkick-4.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/chartkick-4.2.1/vendor" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/chartkick-4.2.1/licenses" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/chartkick-4.2.1/licenses" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="childprocess (vbundled(4.1.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -915,14 +936,17 @@
         </properties>
         <CLASSES>
           <root url="file://$MODULE_DIR$/../mysearch/lib" />
+          <root url="file://$MODULE_DIR$/../mysearch/.git" />
           <root url="file://$MODULE_DIR$/../mysearch/.idea" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
           <root url="file://$MODULE_DIR$/../mysearch/lib" />
+          <root url="file://$MODULE_DIR$/../mysearch/.git" />
           <root url="file://$MODULE_DIR$/../mysearch/.idea" />
         </SOURCES>
         <excluded>
+          <root url="file://$MODULE_DIR$/../mysearch/.git" />
           <root url="file://$MODULE_DIR$/../mysearch/.idea" />
         </excluded>
       </library>
@@ -1491,6 +1515,50 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="sassc (vbundled(2.4.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/test" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sassc-rails (vbundled(2.1.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-rails-2.1.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-rails-2.1.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-rails-2.1.2/gemfiles" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-rails-2.1.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-rails-2.1.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-rails-2.1.2/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-rails-2.1.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sassc-rails-2.1.2/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="selenium-webdriver (vbundled(4.6.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1856,8 +1924,6 @@
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.3.23, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.5.11, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.6.0, ruby-3.1.2-p20) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sassc (v2.4.0, ruby-3.1.2-p20) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sassc-rails (v2.1.2, ruby-3.1.2-p20) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

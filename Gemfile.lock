@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/gabriel/Documents/NCI/CloudDev/Final Project/mysearch
+GIT
+  remote: https://github.com/gbss91/mySearch
+  revision: fee567c77081b26025f7687a2eeafed22cc6196b
   specs:
     mysearch (1.1)
 
