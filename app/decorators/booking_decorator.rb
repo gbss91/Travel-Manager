@@ -29,4 +29,5 @@ class BookingDecorator < BaseDecorator
       "<td class='text-success'>#{status}</td>".html_safe # Returns confirm green for future reservations
     end
   end
+
 end

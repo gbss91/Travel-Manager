@@ -76,8 +76,8 @@ class HotelsApi < ApplicationService
       hotel_details = {
         hotel_name: hotel["hotel"]["name"],
         hotel_geocode: "#{hotel['hotel']['latitude']},#{hotel['hotel']['longitude']}",
-        room_type: hotel["offers"][0]["room"]["typeEstimated"]["category"],
-        rate: hotel["offers"][0]["price"]["total"]
+        room_type: hotel["offers"][0]["room"]["typeEstimated"]["category"] ||= "No Information",
+        rate: hotel["offers"][0]["price"]["total"].to_i.round()
       }
       hotel_list << hotel_details
     end

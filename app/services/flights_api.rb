@@ -59,7 +59,7 @@ class FlightsApi < ApplicationService
       flight.destination_city = f["itineraries"][0]["segments"][0]["arrival"]["iataCode"]
       flight.arrival_time = f["itineraries"][0]["segments"][0]["arrival"]["at"]
       flight.adults = @adults
-      flight.total_price = f["price"]["grandTotal"]
+      flight.total_price = f["price"]["grandTotal"].to_i.round()
       flight.duration = f["itineraries"][0]["segments"][0]["duration"]
 
       flight_results << flight

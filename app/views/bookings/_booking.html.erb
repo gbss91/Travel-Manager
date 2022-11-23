@@ -85,18 +85,18 @@
         <% booking.flights.each do |f| %>
           <tr>
             <td><%= "Flight #{f.origin_city}-#{f.destination_city}"%></td>
-            <td class="text-end"><%= f.total_price.round(2)%></td>
+            <td class="text-end"><%= "#{f.total_price.round()} EUR"%></td>
           </tr>
         <% end %>
         <tr>
           <td><%= "Hotel x #{booking.hotel.no_nights} nights" %></td>
-          <td class="text-end"><%= "#{booking.hotel.total_price.round(2)} EUR" %></td>
+          <td class="text-end"><%= "#{booking.hotel.total_price.round()} EUR" %></td>
         </tr>
         </tbody>
         <tfoot>
           <tr class="fw-bold">
             <td>Total:</td>
-            <td class="text-end"><%= "#{b_decorator.total} EUR" %></td>
+            <td class="text-end"><%= "#{b_decorator.total.round()} EUR" %></td>
           </tr>
         </tfoot>
       </table>

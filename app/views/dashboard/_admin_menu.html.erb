@@ -24,6 +24,11 @@
         <% end %>
       </li>
       <li class="nav-item">
+        <%= link_to insights_path, class: "nav-link #{current_class_by(path: insights_path)}", data: { turbo:false } do%>
+          <i class="fa fa-tachometer"></i> Insights
+        <% end %>
+      </li>
+      <li class="nav-item">
         <%= link_to users_path, class: "nav-link #{current_class_by(path: users_path)}", data: { turbo:false } do%>
             <i class="fa fa-users"></i> Users
         <% end %>

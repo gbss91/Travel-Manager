@@ -195,7 +195,31 @@ tfoot {
 
 }
 
+/* Insights */
+.small-box {
+  height: 120px;
+  background-color: #f8f8f7;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-top: 5vh;
+}
 
+.big-box {
+  height: 300px;
+  background-color: #f8f8f7;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-top: 5vh;
+}
+
+.chart-container {
+  padding: 30px;
+}
+
+.chart-container p {
+  margin-bottom: 0;
+  text-align: center;
+}
 
 
 

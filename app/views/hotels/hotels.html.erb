@@ -16,8 +16,8 @@
               <p><%= hotel.dig(:room_type).titleize%></p>
             </div>
             <div class="col-2">
-              <h5 class="text-end"><%= "€ #{hotel.dig(:rate)}" %></h5>
-              <%= button_to "Select", booking_hotels_path, method: :post, params: { hotel: { booking_id: @booking.id,hotel_name: hotel.dig(:hotel_name).titleize, address: hotel.dig(:address), room_type: hotel.dig(:room_type).titleize, rate: hotel.dig(:rate).titleize } },class: "btn btn-primary float-end" %>
+              <h5 class="text-end"><%= "€#{hotel.dig(:rate).round()}" %></h5>
+              <%= button_to "Select", booking_hotels_path, method: :post, params: { hotel: { booking_id: @booking.id,hotel_name: hotel.dig(:hotel_name).titleize, address: hotel.dig(:address), room_type: hotel.dig(:room_type).titleize, rate: hotel.dig(:rate).round() } },class: "btn btn-primary float-end" %>
             </div>
           </div>
         </div>

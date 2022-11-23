@@ -1,0 +1,56 @@
+<div class="row section-title">
+  <h1>Insights</h1>
+</div>
+<%# Shows insights only if there are several bookings %>
+<% if @bookings.count > 0 %>
+  <div  class=" row d-flex align-items-center">
+    <div class="col-4">
+      <div class="small-box booking-box-text">
+        <p>Total Bookings</p>
+        <h5><%= @bookings.count %></h5>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="small-box booking-box-text">
+        <p>Most Visited</p>
+        <h5><%= @most_visited %></h5>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="small-box booking-box-text">
+        <p>Total Spent</p>
+        <h5><%= "€#{@bookings.sum(&:total_price).to_i}"  %></h5>
+      </div>
+    </div>
+  </div>
+  <div  class=" row d-flex align-items-center">
+    <div class="col-12">
+      <div class="big-box">
+        <div class="row">
+          <div class="col-12 chart-container">
+            <p>Total Spent by Month</p>
+            <%= line_chart @totals, height: "200px", colors: %w[#eb8258] %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div  class=" row d-flex align-items-center">
+    <div class="col-12">
+      <div class="big-box">
+        <div class="row">
+          <div class="col-6 chart-container">
+            <p>Top Destinations</p>
+            <%= pie_chart @bookings.group(:destination).count.first(3), height: "200px", colors: %w[#eb8258 #9d6fac #226b80], donut: true %>
+          </div>
+          <div class="col-6 chart-container">
+            <p>Top Airlines</p>
+            <%= pie_chart @flights.group(:carrier).count.first(3), height: "200px", colors: %w[#eb8258 #9d6fac #226b80], donut: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  Not enough data. Please come back later
+<% end %>
