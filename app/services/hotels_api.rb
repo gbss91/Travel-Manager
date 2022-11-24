@@ -38,8 +38,8 @@ class HotelsApi < ApplicationService
 
   def find_hotel_ids(token)
     # Make call with token and params
-    url = URI("https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city")
-    response = HTTP.auth("Bearer #{token}").get(url, params: { cityCode: @city_code, radius: 5 })
+    url = URI("https://api.amadeus.com/v1/reference-data/locations/hotels/by-city")
+    response = HTTP.auth("Bearer #{token}").get(url, params: { cityCode: @city_code, ratings: [3, 4] })
     data = JSON.parse(response.body)
 
     # Array to store all hotel Ids
@@ -47,8 +47,8 @@ class HotelsApi < ApplicationService
 
     return hotel_ids unless response.status.success?
 
-    # Take only  first 15 hotels in data to avoid reaching free monthly quota
-    data["data"].slice(0, 15).each do |hotel|
+    # Take 20 random hotels in data to avoid reaching free monthly quota
+    data["data"].sample(20).each do |hotel|
       hotel_ids << hotel["hotelId"]
     end
 
@@ -58,7 +58,7 @@ class HotelsApi < ApplicationService
 
   def find_hotel_details(token, hotel_ids)
     # Make call with token and params
-    url = URI("https://test.api.amadeus.com/v3/shopping/hotel-offers")
+    url = URI("https://api.amadeus.com/v3/shopping/hotel-offers")
     response = HTTP.auth("Bearer #{token}").get(url, params: { hotelIds: hotel_ids, adults: @adults, checkInDate: @check_in.to_s, checkOutDate: @check_out.to_s })
 
     return unless response.status.success?

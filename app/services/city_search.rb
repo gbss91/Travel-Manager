@@ -15,7 +15,7 @@ class CitySearch < ApplicationService
     # Get a new access token
     token = AmadeusAccessToken.call
     # Make call with token and params
-    url = URI("https://test.api.amadeus.com/v1/reference-data/locations")
+    url = URI("https://api.amadeus.com/v1/reference-data/locations")
     response = HTTP.auth("Bearer #{token}").get(url, params: { subType: "CITY", keyword: @city, view: "LIGHT" })
     data = JSON.parse(response.body)
 

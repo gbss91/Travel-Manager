@@ -36,7 +36,7 @@ class FlightsApi < ApplicationService
 
   def find_flights
     # Make call with token and params
-    url = URI("https://test.api.amadeus.com/v2/shopping/flight-offers")
+    url = URI("https://api.amadeus.com/v2/shopping/flight-offers")
     response = HTTP.auth("Bearer #{@token}").get(url, params: { originLocationCode: @origin_city, destinationLocationCode: @destination_city, departureDate: @departure_date.to_s, adults: @adults, travelClass: @travel_class, currencyCode: "EUR", nonStop: true, max: 10 })
 
     return unless response.status.success?
@@ -73,7 +73,7 @@ class FlightsApi < ApplicationService
     sleep(0.5.second) # Used in development to avoid reaching API rate limit
 
     # Make call with token and params
-    url = URI("https://test.api.amadeus.com/v1/reference-data/airlines")
+    url = URI("https://api.amadeus.com/v1/reference-data/airlines")
     response = HTTP.auth("Bearer #{@token}").get(url, params: { airlineCodes: carrier_code })
 
     # Return carrier code if error, else airline name
