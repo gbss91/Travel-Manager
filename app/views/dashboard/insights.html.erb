@@ -3,6 +3,7 @@
 </div>
 <%# Shows insights only if there are several bookings %>
 <% if @bookings.count > 0 %>
+  <% u_decorator = decorate(@user) %>
   <div  class=" row d-flex align-items-center">
     <div class="col-4">
       <div class="small-box booking-box-text">
@@ -12,8 +13,8 @@
     </div>
     <div class="col-4">
       <div class="small-box booking-box-text">
-        <p>Most Visited</p>
-        <h5><%= @most_visited %></h5>
+        <p>Top Spender</p>
+        <h5><%= u_decorator.full_name %></h5>
       </div>
     </div>
     <div class="col-4">
