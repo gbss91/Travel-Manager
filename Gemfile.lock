@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/gbss91/mySearch
-  revision: fee567c77081b26025f7687a2eeafed22cc6196b
+  revision: 9d75dfb8b5ca6f8c7890ab86cdb4f751f3e951fb
   specs:
-    mysearch (1.1)
+    mysearch (1.1.2)
 
 GEM
   remote: https://rubygems.org/
@@ -77,7 +77,7 @@ GEM
     ast (2.4.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
-    bootsnap (1.13.0)
+    bootsnap (1.14.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     capybara (3.38.0)
@@ -127,7 +127,7 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.5.11)
-    irb (1.4.2)
+    irb (1.5.0)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -204,14 +204,14 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
-    regexp_parser (2.6.0)
+    regexp_parser (2.6.1)
     reline (0.3.1)
       io-console (~> 0.5)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
-    rubocop (1.38.0)
+    rubocop (1.39.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
