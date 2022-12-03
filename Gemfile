@@ -46,7 +46,7 @@ gem 'rails-observers'
 gem "chartkick"
 
 # Custom GEM to search
-gem "mysearch", "~> 2.0", git: "https://github.com/gbss91/mySearch"
+gem 'mysearch', '~> 2.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

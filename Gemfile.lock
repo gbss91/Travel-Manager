@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/gbss91/mySearch
-  revision: 6b315973c79f871dc5cd201d3ef3824fac809a48
-  specs:
-    mysearch (2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -153,6 +147,7 @@ GEM
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.6.0)
+    mysearch (2.0)
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -163,10 +158,6 @@ GEM
       net-protocol
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.9-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
@@ -288,8 +279,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
-  x86_64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -303,7 +292,7 @@ DEPENDENCIES
   http
   importmap-rails
   jbuilder
-  mysearch (~> 2.0)!
+  mysearch (~> 2.0)
   pg
   puma (~> 5.0)
   rails (~> 7.0.4)

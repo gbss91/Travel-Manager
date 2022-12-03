@@ -963,20 +963,12 @@
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/bundler/gems/mySearch-6b315973c79f/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/bundler/gems/mySearch-6b315973c79f/.git" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/bundler/gems/mySearch-6b315973c79f/.idea" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/mysearch-2.0/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/bundler/gems/mySearch-6b315973c79f/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/bundler/gems/mySearch-6b315973c79f/.git" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/bundler/gems/mySearch-6b315973c79f/.idea" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/mysearch-2.0/lib" />
         </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/bundler/gems/mySearch-6b315973c79f/.git" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/bundler/gems/mySearch-6b315973c79f/.idea" />
-        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
