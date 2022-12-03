@@ -40,7 +40,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
            params: { booking: { user_id: @booking.user_id, booked_on_date: @booking.booked_on_date, origin: @booking.origin, destination: @booking.destination, departure_date: @booking.departure_date, return_date: @booking.return_date, adults: @booking.adults, status: @booking.status, booking_type: @booking.booking_type } }
     end
 
-    assert_redirected_to booking_flights_outbound_path(Booking.last)
+    assert_redirected_to booking_outbound_results_path(Booking.last)
   end
 
   test "should update booking" do

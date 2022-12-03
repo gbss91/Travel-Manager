@@ -11,7 +11,6 @@ class BookingDecorator < BaseDecorator
     else
       "#{destination} to #{origin}"
     end
-
   end
 
   def total
@@ -29,5 +28,4 @@ class BookingDecorator < BaseDecorator
       "<td class='text-success'>#{status}</td>".html_safe # Returns confirm green for future reservations
     end
   end
-
 end

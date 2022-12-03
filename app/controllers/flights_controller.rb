@@ -1,3 +1,4 @@
+# Flights controller
 class FlightsController < ApplicationController
   include ActionView::Helpers::UrlHelper
   before_action :set_booking
@@ -18,7 +19,6 @@ class FlightsController < ApplicationController
   def outbound_results; end
   def inbound_results; end
 
-
   # POST /flights or /flights.json
   def create
     @flight = Flight.new(flight_params)
@@ -33,7 +33,6 @@ class FlightsController < ApplicationController
         save_inbound_oneway(format)
       end
     end
-
   end
 
   private
@@ -92,5 +91,4 @@ class FlightsController < ApplicationController
   def flight_params
     params.require(:flight).permit(:carrier_code, :flight_no, :carrier, :origin_city, :destination_city, :departure_time, :arrival_time, :duration, :adults, :total_price, :booking_id, :direction)
   end
-
 end

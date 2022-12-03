@@ -13,6 +13,7 @@ flight_one:
   duration: 2023-01-10 03:46:25
   adults: 1
   total_price: 1.5
+  direction: Outbound
 
 flight_two:
   id: 2
@@ -27,6 +28,7 @@ flight_two:
   duration: 2022-10-19 04:46:25
   adults: 1
   total_price: 135.00
+  direction: Outbound
 
 flight_three:
   id: 3
@@ -41,6 +43,7 @@ flight_three:
   duration: 2022-10-19 05:15:25
   adults: 1
   total_price: 98.00
+  direction: Inbound
 
 flight_four:
   id: 4
@@ -55,4 +58,5 @@ flight_four:
   duration: 2022-10-19 05:15:25
   adults: 1
   total_price: 98.00
+  direction: Outbound
 

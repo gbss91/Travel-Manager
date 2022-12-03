@@ -1,3 +1,4 @@
+# Booking model - Handles bookings created by users
 class Booking < ApplicationRecord
   belongs_to :user
   has_many :flights, dependent: :delete_all

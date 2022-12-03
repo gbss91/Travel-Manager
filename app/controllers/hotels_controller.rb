@@ -1,3 +1,4 @@
+# Hotels Controller
 class HotelsController < ApplicationController
   before_action :set_booking
   before_action :booking_confirmed?, only: :hotels

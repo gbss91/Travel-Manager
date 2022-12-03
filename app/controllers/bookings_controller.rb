@@ -1,4 +1,5 @@
 require 'mysearch'
+# Bookings controller
 class BookingsController < ApplicationController
   before_action :admin?, only: :index
   before_action :set_booking, only: %i[show confirm update destroy]

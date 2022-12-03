@@ -23,10 +23,10 @@ class FlightsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create flight" do
     sign_in @user # Sign in user
-    assert_difference("Flight.count") do
-      post booking_flights_path(@booking), params: { flight: { booking_id: @booking.id, adults: @flight.adults, arrival_time: @flight.arrival_time, carrier: @flight.carrier, departure_time: @flight.departure_time, destination_city: @flight.destination_city, duration: @flight.duration, flight_no: @flight.flight_no, origin_city: @flight.origin_city, total_price: @flight.total_price, carrier_code: @flight.carrier_code } }
-    end
 
-    assert_redirected_to booking_hotels_results_path(@booking)
+    post booking_flights_path(@booking), params: { flight: { booking_id: @booking.id, adults: @flight.adults, arrival_time: @flight.arrival_time, carrier: @flight.carrier, departure_time: @flight.departure_time, destination_city: @flight.destination_city, duration: @flight.duration, flight_no: @flight.flight_no, origin_city: @flight.origin_city, total_price: @flight.total_price, carrier_code: @flight.carrier_code, direction: @flight.direction } }
+
+
+    assert_redirected_to booking_inbound_results_path(@booking)
   end
 end

@@ -39,9 +39,6 @@ gem "font-awesome-rails"
 # External GEM for HTTP [https://github.com/httprb/http]
 gem "http"
 
-# External GEM to analyze and format code [https://github.com/httprb/http]
-gem 'rubocop', '~> 1.38', require: false
-
 # Allows to use observer [https://github.com/rails/rails-observers]
 gem 'rails-observers'
 
@@ -75,7 +72,12 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "brakeman"
+  gem "bundler-audit", "~> 0.9.1"
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "ruby_audit"
+  gem 'rubocop', '~> 1.38', require: false
+
 end
 
 group :development do

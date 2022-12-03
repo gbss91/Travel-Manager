@@ -1,6 +1,5 @@
 # Decorator for flights. It decorates a model instance and allows to extract complex logic from the views
 class FlightDecorator < BaseDecorator
-
   def flight_code
     carrier_code + flight_no
   end
