@@ -2,7 +2,7 @@ GIT
   remote: https://github.com/gbss91/mySearch
   revision: 9d75dfb8b5ca6f8c7890ab86cdb4f751f3e951fb
   specs:
-    mysearch (1.1.2)
+    mysearch
 
 GEM
   remote: https://rubygems.org/
