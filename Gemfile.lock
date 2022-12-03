@@ -303,7 +303,7 @@ DEPENDENCIES
   http
   importmap-rails
   jbuilder
-  mysearch!
+  mysearch (~> 2.0)!
   pg
   puma (~> 5.0)
   rails (~> 7.0.4)
