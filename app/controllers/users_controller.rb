@@ -1,4 +1,4 @@
-# User controller
+# User controller - Handles actions inside admin panel, allowing users to add and edit other users.
 class UsersController < ApplicationController
   before_action :admin?, except: :show
   before_action :set_user, only: %i[show edit update destroy]
@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to users_path }
@@ -68,6 +67,9 @@ class UsersController < ApplicationController
     redirect_to root_path unless current_user.admin?
   end
 
+  # This params are used in admin panel
+  # Params used to create new users outside admin panel are handled by Devise controller
+  # Added this to brakeman ignore file
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :admin, :password, :password_confirmation)
   end
