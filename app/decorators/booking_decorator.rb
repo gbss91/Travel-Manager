@@ -15,9 +15,9 @@ class BookingDecorator < BaseDecorator
 
   def total
     if status == "Round Trip"
-      (((flights[0].total_price + flights[1].total_price) * adults) + hotel.total_price).round(2)
+      (flights[0].total_price + flights[1].total_price + hotel.total_price).round(2)
     else
-      ((flights[0].total_price * adults) + hotel.total_price).round(2)
+      (flights[0].total_price + hotel.total_price).round(2)
     end
   end
 
