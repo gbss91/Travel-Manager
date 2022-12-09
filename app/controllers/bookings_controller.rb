@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings for current user - Only shows future confirmed bookings in my bookings
   def current_user_bookings
-    @bookings = current_user.bookings.where.not(status: "Prebooked").and(current_user.bookings.where(departure_date: Date.today..))
+    @bookings = current_user.bookings.where.not(status: "Prebooked").and(current_user.bookings.where(departure_date: Date.today..)).order(:departure_date)
   end
 
   # GET /bookings/1 or /bookings/1.json

@@ -1,0 +1,17 @@
+current directory: /Users/gabriel/Documents/NCI/CloudDev/Final Project/TravelManager/vendor/bundle/ruby/3.1.0/gems/racc-1.6.1/ext/racc/cparse
+/opt/homebrew/opt/ruby/bin/ruby -I /opt/homebrew/Cellar/ruby/3.1.2_1/lib/ruby/3.1.0 -r ./siteconf20221209-21595-8dhytb.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/gabriel/Documents/NCI/CloudDev/Final Project/TravelManager/vendor/bundle/ruby/3.1.0/gems/racc-1.6.1/ext/racc/cparse
+make DESTDIR\= clean
+
+current directory: /Users/gabriel/Documents/NCI/CloudDev/Final Project/TravelManager/vendor/bundle/ruby/3.1.0/gems/racc-1.6.1/ext/racc/cparse
+make DESTDIR\=
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/gabriel/Documents/NCI/CloudDev/Final Project/TravelManager/vendor/bundle/ruby/3.1.0/gems/racc-1.6.1/ext/racc/cparse
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20221209-21595-5enkzs/racc
