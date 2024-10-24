@@ -2,7 +2,7 @@
 module ApplicationHelper
   # Change active class for dashboard menu
   def current_class_by(path:)
-    return "active" if request.path == path
+    "active" if request.path == path
   end
 
   # Decorator helper - Initialises the decorator class

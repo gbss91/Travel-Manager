@@ -24,7 +24,6 @@ class BookingFlowTest < ActionDispatch::IntegrationTest
 
     post booking_flights_path(@booking), params: { flight: { adults: @flight.adults, arrival_time: @flight.arrival_time, carrier: @flight.carrier, carrier_code: @flight.carrier_code, departure_time: @flight.departure_time, destination_city: @flight.destination_city, duration: @flight.duration, flight_no: @flight.flight_no, origin_city: @flight.origin_city, total_price: @flight.total_price, booking_id: @booking.id, direction: @flight.direction } }
 
-
     # User is redirected to hotel results as this is a one way trip
     assert_response :redirect
     assert_redirected_to booking_hotels_results_url(@booking)

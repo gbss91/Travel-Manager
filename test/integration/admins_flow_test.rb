@@ -70,7 +70,7 @@ class AdminsFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     # Display confirmed bookings
-    assert_select "tr", 2 #
+    assert_select "tr", 2
 
     # Opens staff booking /booking/2
     get booking_url(bookings(:two))
