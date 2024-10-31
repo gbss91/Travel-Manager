@@ -4,9 +4,9 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%=Rails.application.credentials.development_db[:username]%>
-  password: <%=Rails.application.credentials.development_db[:password]%>
-  host: <%= ENV.fetch("DB_HOST", "postgres") %>
+  username: <%= ENV.fetch("DB_USERNAME") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
+  host: <%= ENV.fetch("DB_HOST") %>
 
 development:
   <<: *default
@@ -17,7 +17,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: TravelManager_test
+  database: <%= ENV.fetch("POSTGRES_DB", TravelManager_test)%>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
