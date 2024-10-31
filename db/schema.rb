@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_200349) do
+ActiveRecord::Schema[7.1].define(version: 20_221_122_200_349) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,9 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_200349) do
     t.integer "user_id", null: false
     t.date "booked_on_date", null: false
     t.string "origin", null: false
-    t.string "origin_city_code", null: false
     t.string "destination", null: false
-    t.string "destination_city_code", null: false
     t.date "departure_date", null: false
     t.date "return_date", null: false
     t.integer "adults", null: false
@@ -31,13 +29,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_200349) do
     t.datetime "updated_at", null: false
     t.string "booking_type"
     t.text "img_url"
+    t.string "origin_city_code", null: false
+    t.string "destination_city_code", null: false
     t.index ["destination"], name: "index_bookings_on_destination"
     t.index ["status"], name: "index_bookings_on_status"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "flights", force: :cascade do |t|
-    t.string "carrier_code", null: false
     t.string "flight_no", null: false
     t.string "carrier", null: false
     t.string "origin_city", null: false
@@ -48,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_200349) do
     t.integer "adults", null: false
     t.float "total_price", null: false
     t.bigint "booking_id", null: false
+    t.string "carrier_code", null: false
     t.string "direction", null: false
     t.index ["booking_id"], name: "index_flights_on_booking_id"
     t.index ["carrier"], name: "index_flights_on_carrier"
@@ -60,10 +60,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_200349) do
     t.text "address"
     t.string "city", null: false
     t.date "check_in_date", null: false
-    t.string "room_type"
     t.integer "no_nights", null: false
     t.float "rate", null: false
     t.float "total_price", null: false
+    t.string "room_type"
     t.index ["booking_id"], name: "index_hotels_on_booking_id"
     t.index ["hotel_name"], name: "index_hotels_on_hotel_name"
   end
@@ -87,5 +87,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_200349) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 end
