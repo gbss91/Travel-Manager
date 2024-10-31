@@ -26,7 +26,6 @@ jobs:
     env:
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       RAILS_ENV: test
-      POSTGRES_DB: rails_test
       DB_USERNAME: rails
       DB_PASSWORD: password
       DB_HOST: localhost
