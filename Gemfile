@@ -58,11 +58,10 @@ gem 'mysearch', '~> 2.0'
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -75,9 +74,8 @@ group :development, :test do
   gem "brakeman"
   gem "bundler-audit", "~> 0.9.1"
   gem "debug", platforms: %i[mri mingw x64_mingw]
-  gem "ruby_audit"
   gem 'rubocop', '~> 1.38', require: false
-
+  gem "ruby_audit"
 end
 
 group :development do
