@@ -156,6 +156,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.7.3)
+
     language_server-protocol (3.17.0.3)
     llhttp-ffi (0.5.0)
       ffi-compiler (~> 1.0)
