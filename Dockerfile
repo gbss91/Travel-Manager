@@ -1,12 +1,13 @@
 # syntax=docker/dockerfile:1
 
 # Use the official Ruby image 
-FROM ruby:3.1.2
+FROM ruby:3.3.2
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y \
   nodejs \
   postgresql-client \
+  libpq-dev \
   libssl-dev \
   libreadline-dev \
   zlib1g-dev \
@@ -14,7 +15,7 @@ RUN apt-get update -qq && apt-get install -y \
   curl
 
 # Set the working directory
-WORKDIR /
+WORKDIR /app
 
 # Copy the Gemfile and Gemfile.lock
 COPY Gemfile /Gemfile
