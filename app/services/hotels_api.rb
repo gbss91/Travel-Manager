@@ -59,7 +59,9 @@ class HotelsApi < ApplicationService
   def find_hotel_details(token, hotel_ids)
     # Make call with token and params
     url = URI("https://api.amadeus.com/v3/shopping/hotel-offers")
-    response = HTTP.auth("Bearer #{token}").get(url, params: { hotelIds: hotel_ids, adults: @adults, checkInDate: @check_in.to_s, checkOutDate: @check_out.to_s })
+    response = HTTP.auth("Bearer #{token}").get(url,
+                                                params: { hotelIds: hotel_ids, adults: @adults,
+                                                          checkInDate: @check_in.to_s, checkOutDate: @check_out.to_s })
 
     return unless response.status.success?
 

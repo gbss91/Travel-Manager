@@ -18,7 +18,9 @@ class HotelsControllerTest < ActionDispatch::IntegrationTest
   test "should create hotel" do
     sign_in @staff
     assert_difference("Hotel.count") do
-      post booking_hotels_path(@booking), params: { hotel: { booking_id: @booking.id, hotel_name: @hotel.hotel_name, address: @hotel.address, room_type: @hotel.room_type, rate: @hotel.rate } }
+      post booking_hotels_path(@booking),
+           params: { hotel: { booking_id: @booking.id, hotel_name: @hotel.hotel_name, address: @hotel.address,
+                              room_type: @hotel.room_type, rate: @hotel.rate } }
     end
 
     assert_response :redirect

@@ -8,10 +8,10 @@ Style/StringLiterals:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Lint/MissingSuper:
+Style/Documentation:
   Enabled: false
 
-Layout/LineLength:
+Lint/MissingSuper:
   Enabled: false
 
 Metrics/MethodLength:

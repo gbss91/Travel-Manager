@@ -37,7 +37,11 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   test "should create booking" do
     assert_difference("Booking.count") do
       post bookings_url,
-           params: { booking: { user_id: @booking.user_id, booked_on_date: @booking.booked_on_date, origin: @booking.origin, destination: @booking.destination, departure_date: @booking.departure_date, return_date: @booking.return_date, adults: @booking.adults, status: @booking.status, booking_type: @booking.booking_type } }
+           params: { booking: { user_id: @booking.user_id, booked_on_date: @booking.booked_on_date,
+                                origin: @booking.origin, destination: @booking.destination,
+                                departure_date: @booking.departure_date, return_date: @booking.return_date,
+                                adults: @booking.adults, status: @booking.status,
+                                booking_type: @booking.booking_type } }
     end
 
     assert_redirected_to booking_outbound_results_path(Booking.last)

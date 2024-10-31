@@ -15,7 +15,9 @@ class DashboardController < ApplicationController
     @user = User.find(user_id)
 
     year_bookings = @bookings.where("extract(year from booked_on_date) = ?", Date.today.year).order(:booked_on_date)
-    @totals = year_bookings.group_by { |b| b.booked_on_date.strftime("%B") }.map { |k, v| [k, v.each.sum(&:total_price).to_i] }
+    @totals = year_bookings.group_by do |b|
+      b.booked_on_date.strftime("%B")
+    end.map { |k, v| [k, v.each.sum(&:total_price).to_i] } # rubocop:disable Style/MultilineBlockChain
   end
 
   private

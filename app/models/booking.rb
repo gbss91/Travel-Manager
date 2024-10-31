@@ -4,7 +4,8 @@ class Booking < ApplicationRecord
   has_many :flights, dependent: :delete_all
   has_one :hotel, dependent: :delete
 
-  validates :user_id, :booked_on_date, :origin, :destination, :departure_date, :return_date, :adults, :status, :booking_type, presence: true, allow_blank: false
+  validates :user_id, :booked_on_date, :origin, :destination, :departure_date, :return_date, :adults, :status,
+            :booking_type, presence: true, allow_blank: false
   validate :origin_code
   validate :destination_code
 
