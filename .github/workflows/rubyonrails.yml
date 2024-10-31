@@ -20,8 +20,8 @@ jobs:
           - "5432:5432"
         env:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          POSTGRES_DB: rails_test
-          POSTGRES_USER: rails
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
     env:
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
