@@ -6,6 +6,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%=Rails.application.credentials.development_db[:username]%>
   password: <%=Rails.application.credentials.development_db[:password]%>
+  host: <%= ENV.fetch("DB_HOST", "postgres") %>
 
 development:
   <<: *default

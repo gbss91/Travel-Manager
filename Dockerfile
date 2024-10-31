@@ -14,11 +14,11 @@ RUN apt-get update -qq && apt-get install -y \
   curl
 
 # Set the working directory
-WORKDIR /Travel-Manager
+WORKDIR /
 
 # Copy the Gemfile and Gemfile.lock
-COPY Gemfile /Travel-Manager/Gemfile
-COPY Gemfile.lock /Travel-Manager/Gemfile.lock
+COPY Gemfile /Gemfile
+COPY Gemfile.lock /Gemfile.lock
 
 # Install Gems dependencies
 RUN gem install bundler && bundle install
