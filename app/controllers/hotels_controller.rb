@@ -5,7 +5,8 @@ class HotelsController < ApplicationController
 
   # GET /hotels/results
   def hotels
-    @hotels = HotelsApi.call(@booking.destination_city_code, @booking.adults, @booking.departure_date, @booking.return_date)
+    @hotels = HotelsApi.call(@booking.destination_city_code, @booking.adults, @booking.departure_date,
+                             @booking.return_date)
   end
 
   # Get skeleton loading page
@@ -26,7 +27,11 @@ class HotelsController < ApplicationController
       if @hotel.save
         format.html { redirect_to confirm_booking_path(@booking) }
       else
-        format.html { redirect_to booking_hotels_results_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the hotel, please try again later." }
+        format.html do
+          redirect_to booking_hotels_results_path(@booking), status: :unprocessable_entity,
+                                                             alert: "There was an issue with the hotel,
+                                                             please try again later."
+        end
       end
     end
   end

@@ -5,7 +5,12 @@ class UsersController < ApplicationController
 
   # GET all /users - Allows to sort table by params
   def index
-    @users = params[:search].present? ?  MySearch.user(%w[id first_name last_name email], params[:search]) : User.order(params[:sort])
+    @users = if params[:search].present?
+               MySearch.user(%w[id first_name last_name email],
+                             params[:search])
+             else
+               User.order(params[:sort])
+             end
   end
 
   # GET /users/1 - Restrict non-admins to only seeing their own profile

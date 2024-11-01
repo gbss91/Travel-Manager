@@ -20,27 +20,32 @@ jobs:
           - "5432:5432"
         env:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          POSTGRES_DB: rails_test
-          POSTGRES_USER: rails
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
     env:
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       RAILS_ENV: test
-      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+      DB_HOST: localhost
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      # Add or replace dependency steps here
+      # Install dependencies
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      # Add or replace database setup steps here
+      # Create database
+      - name: Create the database
+        run: bin/rails db:create
+      # Setup database
       - name: Set up database schema
         run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
-        run: bin/rake
+        run: bin/rails test
 
   lint:
     runs-on: ubuntu-latest

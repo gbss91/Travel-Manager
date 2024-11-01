@@ -6,12 +6,18 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = params[:search].present? ? MySearch.booking(%w[id status origin destination], params[:search]) : Booking.where.not(status: "Prebooked").order(params[:sort])
+    @bookings = if params[:search].present?
+                  MySearch.booking(%w[id status origin destination], params[:search])
+                else
+                  Booking.where.not(status: "Prebooked").order(params[:sort])
+                end
   end
 
   # GET /bookings for current user - Only shows future confirmed bookings in my bookings
   def current_user_bookings
-    @bookings = current_user.bookings.where.not(status: "Prebooked").and(current_user.bookings.where(departure_date: Date.today..)).order(:departure_date)
+    @bookings = current_user.bookings.where.not(status: "Prebooked")
+                            .and(current_user.bookings.where(departure_date: Date.today..))
+                            .order(:departure_date)
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -60,7 +66,10 @@ class BookingsController < ApplicationController
         format.html { redirect_to booking_url(@booking), alert: "Booking confirmed!" }
         format.json { render :show, status: :ok, location: @booking }
       else
-        format.html { render :edit, status: :unprocessable_entity, alert: "There was an issue confirming the booking, please try again later." }
+        format.html do
+          render :edit, status: :unprocessable_entity,
+                        alert: "There was an issue confirming the booking, please try again later."
+        end
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
@@ -94,6 +103,7 @@ class BookingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:user_id, :booked_on_date, :origin, :destination, :departure_date, :return_date, :adults, :booking_class, :status, :total_price, :booking_type)
+    params.require(:booking).permit(:user_id, :booked_on_date, :origin, :destination, :departure_date, :return_date,
+                                    :adults, :booking_class, :status, :total_price, :booking_type)
   end
 end

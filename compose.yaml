@@ -4,8 +4,8 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_USER: <%= Rails.application.credentials.dig(:development_db, :username) %>
-      POSTGRES_PASSWORD: <%= Rails.application.credentials.dig(:development_db, :password) %>
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:

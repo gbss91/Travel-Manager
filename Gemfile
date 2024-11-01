@@ -74,6 +74,7 @@ group :development, :test do
   gem "brakeman"
   gem "bundler-audit", "~> 0.9.1"
   gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'rubocop', '~> 1.38', require: false
   gem "ruby_audit"
 end

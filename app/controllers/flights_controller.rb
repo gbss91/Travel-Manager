@@ -7,12 +7,14 @@ class FlightsController < ApplicationController
 
   # GET /flights/outbound
   def outbound
-    @flights = FlightsApi.call(@booking.origin_city_code, @booking.destination_city_code, @booking.adults, @booking.departure_date, @booking.booking_class)
+    @flights = FlightsApi.call(@booking.origin_city_code, @booking.destination_city_code, @booking.adults,
+                               @booking.departure_date, @booking.booking_class)
   end
 
   # GET /flights/inbound
   def inbound
-    @flights = FlightsApi.call(@booking.destination_city_code, @booking.origin_city_code, @booking.adults, @booking.return_date, @booking.booking_class)
+    @flights = FlightsApi.call(@booking.destination_city_code, @booking.origin_city_code, @booking.adults,
+                               @booking.return_date, @booking.booking_class)
   end
 
   # Get skeleton loading pages
@@ -59,7 +61,11 @@ class FlightsController < ApplicationController
     if @flight.save
       format.html { redirect_to booking_inbound_results_path(@booking) }
     else
-      format.html { redirect_to booking_outbound_results_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
+      format.html do
+        redirect_to booking_outbound_results_path(@booking), status: :unprocessable_entity,
+                                                             alert: "There was an issue with the flight,
+                                                             please try again later."
+      end
     end
   end
 
@@ -71,7 +77,11 @@ class FlightsController < ApplicationController
     if @flight.save
       format.html { redirect_to booking_hotels_results_path(@booking) }
     else
-      format.html { redirect_to booking_inbound_results_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
+      format.html do
+        redirect_to booking_inbound_results_path(@booking), status: :unprocessable_entity,
+                                                            alert: "There was an issue with the flight,
+                                                            please try again later."
+      end
     end
   end
 
@@ -83,12 +93,18 @@ class FlightsController < ApplicationController
     if @flight.save
       format.html { redirect_to booking_hotels_results_path(@booking) }
     else
-      format.html { redirect_to booking_outbound_results_path(@booking), status: :unprocessable_entity, alert: "There was an issue with the flight, please try again later." }
+      format.html do
+        redirect_to booking_outbound_results_path(@booking), status: :unprocessable_entity,
+                                                             alert: "There was an issue with the flight,
+                                                             please try again later."
+      end
     end
   end
 
   # Only allow a list of trusted parameters through.
   def flight_params
-    params.require(:flight).permit(:carrier_code, :flight_no, :carrier, :origin_city, :destination_city, :departure_time, :arrival_time, :duration, :adults, :total_price, :booking_id, :direction)
+    params.require(:flight).permit(:carrier_code, :flight_no, :carrier, :origin_city,
+                                   :destination_city, :departure_time, :arrival_time,
+                                   :duration, :adults, :total_price, :booking_id, :direction)
   end
 end

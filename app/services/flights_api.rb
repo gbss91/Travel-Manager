@@ -36,7 +36,13 @@ class FlightsApi < ApplicationService
   def find_flights
     # Make call with token and params
     url = URI("https://api.amadeus.com/v2/shopping/flight-offers")
-    response = HTTP.auth("Bearer #{@token}").get(url, params: { originLocationCode: @origin_city, destinationLocationCode: @destination_city, departureDate: @departure_date.to_s, adults: @adults, travelClass: @travel_class, currencyCode: "EUR", nonStop: true, max: 10 })
+    response = HTTP.auth("Bearer #{@token}").get(url,
+                                                 params: { originLocationCode: @origin_city,
+                                                           destinationLocationCode: @destination_city,
+                                                           departureDate: @departure_date.to_s,
+                                                           adults: @adults,
+                                                           travelClass: @travel_class,
+                                                           currencyCode: "EUR", nonStop: true, max: 10 })
 
     return unless response.status.success?
 

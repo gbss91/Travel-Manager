@@ -39,7 +39,10 @@ class AdminsFlowTest < ActionDispatch::IntegrationTest
     assert_select "h1", "Add User" # Check view is rendered
 
     # Admin adds new user and it's redirect to user list
-    post "/users", params: { user: { first_name: "Laura", last_name: "Smith", email: "laura@test.com", admin: true, password: "123456", password_confirmation: "123456" } }
+    post "/users",
+         params: { user: { first_name: "Laura", last_name: "Smith",
+                           email: "laura@test.com", admin: true, password: "123456",
+                           password_confirmation: "123456" } }
     assert_response :redirect
     follow_redirect!
 

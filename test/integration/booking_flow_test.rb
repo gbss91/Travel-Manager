@@ -22,7 +22,12 @@ class BookingFlowTest < ActionDispatch::IntegrationTest
 
     # User selects flight and flight is created
 
-    post booking_flights_path(@booking), params: { flight: { adults: @flight.adults, arrival_time: @flight.arrival_time, carrier: @flight.carrier, carrier_code: @flight.carrier_code, departure_time: @flight.departure_time, destination_city: @flight.destination_city, duration: @flight.duration, flight_no: @flight.flight_no, origin_city: @flight.origin_city, total_price: @flight.total_price, booking_id: @booking.id, direction: @flight.direction } }
+    post booking_flights_path(@booking),
+         params: { flight: { adults: @flight.adults, arrival_time: @flight.arrival_time, carrier: @flight.carrier,
+                             carrier_code: @flight.carrier_code, departure_time: @flight.departure_time,
+                             destination_city: @flight.destination_city, duration: @flight.duration,
+                             flight_no: @flight.flight_no, origin_city: @flight.origin_city,
+                             total_price: @flight.total_price, booking_id: @booking.id, direction: @flight.direction } }
 
     # User is redirected to hotel results as this is a one way trip
     assert_response :redirect
@@ -33,7 +38,9 @@ class BookingFlowTest < ActionDispatch::IntegrationTest
 
   test "user selects hotel and confirm booking" do
     # User selects hotel and hotel is created
-    post booking_hotels_path(@booking), params: { hotel: { booking_id: @booking.id, hotel_name: @hotel.hotel_name, address: @hotel.address, room_type: @hotel.room_type, rate: @hotel.rate } }
+    post booking_hotels_path(@booking),
+         params: { hotel: { booking_id: @booking.id, hotel_name: @hotel.hotel_name, address: @hotel.address,
+                            room_type: @hotel.room_type, rate: @hotel.rate } }
 
     assert_response :redirect
 
