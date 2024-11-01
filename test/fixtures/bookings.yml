@@ -3,13 +3,13 @@
 one:
   id: 1
   user_id: 1
-  booked_on_date: 2022-11-01
+  booked_on_date: <%= Date.today %>
   origin: New York
   origin_city_code: NYC
   destination: Miami
   destination_city_code: MIA
-  departure_date: 2023-01-10
-  return_date: 2023-01-14
+  departure_date: <%= Date.today + 3.day %>
+  return_date: <%= Date.today + 5.day %>
   adults: 1
   booking_class: Economy
   status: Confirmed
@@ -19,13 +19,13 @@ one:
 two:
   id: 2
   user_id: 2
-  booked_on_date: 2022-11-01
+  booked_on_date: <%= Date.today %>
   origin: New York
   origin_city_code: NYC
   destination: Los Angeles
   destination_city_code: LAX
-  departure_date: 2023-01-10
-  return_date: 2023-01-14
+  departure_date: <%= Date.today + 10.day %>
+  return_date: <%= Date.today + 13.day %>
   adults: 1
   booking_class: First
   status: Prebooked
@@ -35,13 +35,13 @@ two:
 three:
   id: 3
   user_id: 2
-  booked_on_date: 2022-11-01
+  booked_on_date: <%= Date.today %>
   origin: Los Angeles
   origin_city_code: LAX
   destination: Seattle
   destination_city_code: SEA
-  departure_date: 2023-01-14
-  return_date: 2023-01-16
+  departure_date: <%= Date.today + 5.day %>
+  return_date: <%= Date.today + 12.day %>
   adults: 1
   booking_class: Economy
   status: Prebooked
